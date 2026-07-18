@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solicitar reserva — Novahost</title>
+<meta name="description" content="Envía tu solicitud de reserva para una propiedad administrada por Novahost en Santiago. Te confirmamos disponibilidad real por WhatsApp.">
+
+<link rel="icon" type="image/png" href="assets/novahost-logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header" data-reveal-header>
+  <div class="header-inner">
+    <a href="index.html" class="brand" aria-label="Novahost, inicio">
+      <span class="brand-mark" aria-hidden="true">NH</span>
+      <span class="brand-word">NOVAHOST</span>
+    </a>
+    <nav class="main-nav" aria-label="Principal">
+      <a href="index.html">Inicio</a>
+      <a href="propiedades.html" class="nav-active">Propiedades</a>
+      <a href="index.html#servicios">Servicios</a>
+      <a href="index.html#cobertura">Cobertura</a>
+    </nav>
+    <div class="header-actions">
+      <a class="header-secondary" data-cta href="#">¿Eres propietario? Cotiza aquí</a>
+      <a class="btn btn-gold btn-nav" href="reservar.html">Reservar alojamiento</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-header section">
+    <div class="section-inner">
+      <a class="back-link" href="propiedades.html">← Volver al catálogo</a>
+      <p class="eyebrow" data-reveal>Solicitud de reserva</p>
+      <h1 class="section-title" data-reveal>Cuéntanos qué necesitas y coordinamos el resto.</h1>
+      <p class="section-copy" data-reveal>
+        Completa tus datos y fechas. Tu solicitud se prepara al instante y la enviamos por WhatsApp —
+        nuestro equipo te confirma la disponibilidad real en menos de 24 horas.
+      </p>
+
+      <div class="booking-layout" data-reveal>
+        <form class="booking-form" data-booking-form novalidate>
+          <div class="form-group">
+            <label for="booking-property">Propiedad</label>
+            <select id="booking-property" data-booking-property required>
+              <option value="">Selecciona una propiedad</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="booking-checkin">Llegada</label>
+              <input type="date" id="booking-checkin" data-booking-checkin required>
+            </div>
+            <div class="form-group">
+              <label for="booking-checkout">Salida</label>
+              <input type="date" id="booking-checkout" data-booking-checkout required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="booking-guests">N° de huéspedes</label>
+            <input type="number" id="booking-guests" data-booking-guests min="1" max="20" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="booking-name">Nombre</label>
+              <input type="text" id="booking-name" data-booking-name required>
+            </div>
+            <div class="form-group">
+              <label for="booking-phone">Teléfono</label>
+              <input type="tel" id="booking-phone" data-booking-phone required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="booking-email">Email (opcional)</label>
+            <input type="email" id="booking-email" data-booking-email>
+          </div>
+
+          <div class="form-group">
+            <label for="booking-note">Comentario (opcional)</label>
+            <textarea id="booking-note" data-booking-note></textarea>
+          </div>
+
+          <p class="form-alert" data-booking-alert></p>
+
+          <button class="btn btn-gold btn-lg" type="submit">Enviar solicitud por WhatsApp</button>
+          <p class="form-submit-note">Esto no confirma la reserva de inmediato: es una solicitud. Te confirmamos disponibilidad real por WhatsApp.</p>
+        </form>
+
+        <div class="booking-folio-wrap">
+          <p class="folio-caption">Folio de tu solicitud</p>
+          <div class="folio folio--static">
+            <div class="folio-head">
+              <span class="folio-label">Folio</span>
+              <span class="folio-label folio-label-dim">Solicitud de reserva</span>
+            </div>
+            <div class="folio-rule"></div>
+            <ul class="folio-fields">
+              <li><span>Propiedad</span><span class="folio-value" data-folio-property>—</span></li>
+              <li><span>Fechas</span><span class="folio-value" data-folio-fechas>—</span></li>
+              <li><span>Noches</span><span class="folio-value" data-folio-noches>—</span></li>
+              <li><span>Huéspedes</span><span class="folio-value" data-folio-huespedes>—</span></li>
+              <li><span>Nombre</span><span class="folio-value" data-folio-nombre>—</span></li>
+            </ul>
+            <div class="folio-rule"></div>
+            <div class="folio-seal">
+              <span class="seal-ring" aria-hidden="true"></span>
+              <span class="seal-text">Pendiente de confirmación</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark" aria-hidden="true">NH</span>
+      <span class="brand-word">NOVAHOST</span>
+      <p>Administración integral de arriendo de corto plazo en la Región Metropolitana.</p>
+    </div>
+    <div class="footer-col">
+      <p class="footer-heading">Navegación</p>
+      <a href="index.html#servicios">Servicios</a>
+      <a href="index.html#proceso">Cómo funciona</a>
+      <a href="index.html#cobertura">Cobertura</a>
+      <a href="propiedades.html">Propiedades</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-heading">Contacto</p>
+      <a data-cta href="#">WhatsApp</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Novahost. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script src="assets/config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+<script src="assets/properties.js"></script>
+<script src="booking.js"></script>
+</body>
+</html>

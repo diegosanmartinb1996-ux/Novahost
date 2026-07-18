@@ -2,13 +2,11 @@
   'use strict';
 
   /* ============================================================
-     Contacto — editar acá cuando el cliente confirme el número real
+     Contacto — el teléfono y el helper de WhatsApp viven en
+     assets/config.js (compartido con booking.js)
      ============================================================ */
-  const WHATSAPP = {
-    phone: '56900000000', // TODO: reemplazar por el número real de Novahost
-    message: 'Hola, quiero cotizar la administración de mi propiedad en arriendo de corto plazo.'
-  };
-  const waHref = `https://wa.me/${WHATSAPP.phone}?text=${encodeURIComponent(WHATSAPP.message)}`;
+  const DEFAULT_WHATSAPP_MESSAGE = 'Hola, quiero cotizar la administración de mi propiedad en arriendo de corto plazo.';
+  const waHref = novahostWhatsAppLink(DEFAULT_WHATSAPP_MESSAGE);
   document.querySelectorAll('[data-cta]').forEach(el => { el.href = waHref; });
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -88,10 +86,10 @@
   /* ============================================================
      Galería — tap para dar vuelta la tarjeta en pantallas táctiles
      ============================================================ */
-  document.querySelectorAll('.gallery-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const isTouch = window.matchMedia('(hover: none)').matches;
-      if (isTouch) card.classList.toggle('is-flipped');
-    });
+  document.addEventListener('click', (event) => {
+    const card = event.target.closest('.gallery-card');
+    if (!card) return;
+    const isTouch = window.matchMedia('(hover: none)').matches;
+    if (isTouch) card.classList.toggle('is-flipped');
   });
 })();

@@ -55,7 +55,7 @@
       <a href="#servicios">Servicios</a>
       <a href="#proceso">Cómo funciona</a>
       <a href="#cobertura">Cobertura</a>
-      <a href="#galeria">Propiedades</a>
+      <a href="propiedades.html">Reservar alojamiento</a>
     </nav>
     <a class="btn btn-gold btn-nav" data-cta href="#" >Cotiza tu propiedad gratis</a>
   </div>
@@ -297,85 +297,21 @@
     </div>
   </section>
 
-  <!-- ============ GALERÍA ============ -->
+  <!-- ============ GALERÍA (teaser del catálogo) ============ -->
   <section class="section galeria" id="galeria">
     <div class="section-inner">
       <p class="eyebrow" data-reveal>Propiedades</p>
-      <h2 class="section-title" data-reveal>Así preparamos cada propiedad.</h2>
-      <p class="section-copy" data-reveal>Fotografías reales de propiedades administradas por Novahost. Vamos sumando más.</p>
+      <h2 class="section-title" data-reveal>Reserva directo en las propiedades que administramos.</h2>
+      <p class="section-copy" data-reveal>
+        Además de administrar tu propiedad, abrimos un canal de reserva directa para huéspedes,
+        sin comisión de plataformas externas. Estas son algunas de las propiedades disponibles.
+      </p>
 
-      <!--
-        GALERÍA — instrucciones para reemplazar por fotos reales:
-        Cada .gallery-card tiene un .gallery-photo vacío. Para agregar una foto real:
-        1) Dentro de .gallery-photo, agregar: <img src="assets/gallery/nombre.jpg" alt="Descripción breve" loading="lazy">
-        2) Quitar la clase "is-empty" de .gallery-photo.
-        3) Completar los datos reales en .gallery-back (comuna, tipo, estado).
-        No se generaron fotos de stock ni inventadas: estos son espacios preparados a la espera del material del cliente.
-      -->
-      <div class="gallery-grid" data-reveal-group>
-        <div class="gallery-card" tabindex="0">
-          <div class="gallery-face gallery-front">
-            <div class="gallery-photo">
-              <img src="assets/airbnb-dormitorio-anfitriones.jpg" alt="Dormitorio principal de una propiedad administrada por Novahost" loading="lazy">
-            </div>
-          </div>
-          <div class="gallery-face gallery-back">
-            <span class="folio-label">Folio</span>
-            <ul class="folio-fields folio-fields-mini">
-              <li><span>Comuna</span><span class="folio-value">—</span></li>
-              <li><span>Tipo</span><span class="folio-value">—</span></li>
-              <li><span>Estado</span><span class="folio-value">—</span></li>
-            </ul>
-          </div>
-        </div>
-        <div class="gallery-card" tabindex="0">
-          <div class="gallery-face gallery-front">
-            <div class="gallery-photo is-empty">
-              <span class="gallery-photo-icon" aria-hidden="true">✷</span>
-              <span>Fotografía pendiente</span>
-            </div>
-          </div>
-          <div class="gallery-face gallery-back">
-            <span class="folio-label">Folio</span>
-            <ul class="folio-fields folio-fields-mini">
-              <li><span>Comuna</span><span class="folio-value">—</span></li>
-              <li><span>Tipo</span><span class="folio-value">—</span></li>
-              <li><span>Estado</span><span class="folio-value">—</span></li>
-            </ul>
-          </div>
-        </div>
-        <div class="gallery-card" tabindex="0">
-          <div class="gallery-face gallery-front">
-            <div class="gallery-photo is-empty">
-              <span class="gallery-photo-icon" aria-hidden="true">✷</span>
-              <span>Fotografía pendiente</span>
-            </div>
-          </div>
-          <div class="gallery-face gallery-back">
-            <span class="folio-label">Folio</span>
-            <ul class="folio-fields folio-fields-mini">
-              <li><span>Comuna</span><span class="folio-value">—</span></li>
-              <li><span>Tipo</span><span class="folio-value">—</span></li>
-              <li><span>Estado</span><span class="folio-value">—</span></li>
-            </ul>
-          </div>
-        </div>
-        <div class="gallery-card" tabindex="0">
-          <div class="gallery-face gallery-front">
-            <div class="gallery-photo is-empty">
-              <span class="gallery-photo-icon" aria-hidden="true">✷</span>
-              <span>Fotografía pendiente</span>
-            </div>
-          </div>
-          <div class="gallery-face gallery-back">
-            <span class="folio-label">Folio</span>
-            <ul class="folio-fields folio-fields-mini">
-              <li><span>Comuna</span><span class="folio-value">—</span></li>
-              <li><span>Tipo</span><span class="folio-value">—</span></li>
-              <li><span>Estado</span><span class="folio-value">—</span></li>
-            </ul>
-          </div>
-        </div>
+      <!-- Las tarjetas se generan desde assets/properties.js (booking.js) -->
+      <div class="gallery-grid" data-reveal-group data-property-teaser></div>
+
+      <div class="galeria-teaser-cta" data-reveal>
+        <a class="btn btn-gold btn-lg" href="propiedades.html">Ver todas las propiedades</a>
       </div>
     </div>
   </section>
@@ -404,7 +340,7 @@
       <a href="#servicios">Servicios</a>
       <a href="#proceso">Cómo funciona</a>
       <a href="#cobertura">Cobertura</a>
-      <a href="#galeria">Propiedades</a>
+      <a href="propiedades.html">Propiedades</a>
     </div>
     <div class="footer-col">
       <p class="footer-heading">Contacto</p>
@@ -416,8 +352,11 @@
   </div>
 </footer>
 
+<script src="assets/config.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="script.js"></script>
+<script src="assets/properties.js"></script>
+<script src="booking.js"></script>
 </body>
 </html>

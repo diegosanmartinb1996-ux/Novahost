@@ -19,6 +19,8 @@
   --text-on-paper-soft: rgba(23,21,15,0.65);
   --line-on-ink: rgba(246,244,238,0.12);
   --line-on-paper: rgba(23,21,15,0.14);
+  --danger: #C24A3B;
+  --danger-faint: rgba(194,74,59,0.14);
 
   /* type */
   --font-display: 'Fraunces', 'Iowan Old Style', serif;
@@ -45,6 +47,8 @@ ul, ol{ list-style:none; margin:0; padding:0; }
 a{ color:inherit; text-decoration:none; }
 h1,h2,h3,p{ margin:0; }
 button{ font:inherit; border:none; background:none; }
+
+[hidden]{ display:none !important; }
 
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior:auto; }
@@ -738,4 +742,283 @@ body{
   padding-inline: var(--gutter);
   font-size:.8rem;
   color: var(--text-on-ink-faint);
+}
+
+/* ============================================================
+   Header — link secundario (páginas de huéspedes)
+   ============================================================ */
+.header-actions{
+  display:flex;
+  align-items:center;
+}
+.header-secondary{
+  display:none;
+  font-family: var(--font-mono);
+  font-size:.72rem;
+  letter-spacing:.04em;
+  color: var(--text-on-ink-faint);
+  border-bottom: 1px solid var(--line-on-ink);
+  padding-bottom: 2px;
+  transition: color .25s var(--ease), border-color .25s var(--ease);
+  margin-right: 1.5rem;
+}
+.header-secondary:hover{ color: var(--gold-light); border-color: var(--gold-dim); }
+@media (min-width: 780px){
+  .header-secondary{ display:inline-flex; }
+}
+.nav-active{ color: var(--gold-light) !important; }
+
+/* ============================================================
+   Page header (catálogo / ficha / reserva)
+   ============================================================ */
+.page-header{
+  padding-top: clamp(7rem, 14vw, 9rem);
+  padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+.page-header .section-copy{ margin-top: 1rem; }
+.back-link{
+  display:inline-flex;
+  align-items:center;
+  gap:.4rem;
+  font-family: var(--font-mono);
+  font-size:.78rem;
+  letter-spacing:.06em;
+  color: var(--text-on-ink-faint);
+  margin-bottom: 1.75rem;
+  transition: color .25s var(--ease);
+}
+.back-link:hover{ color: var(--gold-light); }
+
+/* ============================================================
+   Catálogo de propiedades
+   ============================================================ */
+.filter-bar{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  margin-bottom: -0.5rem;
+}
+.filter-bar label{
+  font-family: var(--font-mono);
+  font-size:.74rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color: var(--text-on-ink-faint);
+}
+.filter-bar select{
+  background: var(--ink-elevated);
+  border: 1px solid var(--line-on-ink);
+  color: var(--text-on-ink);
+  font-family: var(--font-body);
+  font-size:.9rem;
+  padding: .6rem .9rem;
+  border-radius: 2px;
+}
+.filter-bar select:focus-visible{ outline: 2px solid var(--gold-light); outline-offset: 2px; }
+.filter-empty{
+  margin-top: 2rem;
+  color: var(--text-on-ink-faint);
+  font-size:.95rem;
+}
+
+.property-grid{
+  margin-top: 2.5rem;
+  display:grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 620px){
+  .property-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1020px){
+  .property-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+.property-card{
+  display:flex;
+  flex-direction:column;
+  background: var(--ink-elevated);
+  border: 1px solid var(--line-on-ink);
+  transition: border-color .35s var(--ease), transform .35s var(--ease);
+}
+.property-card:hover{ border-color: var(--gold-dim); transform: translateY(-3px); }
+.property-card .gallery-photo{ aspect-ratio: 4/3; }
+.property-card-body{ padding: 1.5rem; display:flex; flex-direction:column; gap:.75rem; flex:1; }
+.property-card-comuna{
+  font-family: var(--font-mono);
+  font-size:.72rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color: var(--gold);
+}
+.property-card h3{
+  font-family: var(--font-display);
+  font-weight:600;
+  font-size:1.2rem;
+}
+.property-card-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap: .5rem .9rem;
+  font-size:.85rem;
+  color: var(--text-on-ink-soft);
+}
+.property-card-price{
+  margin-top: auto;
+  padding-top: .75rem;
+  border-top: 1px solid var(--line-on-ink);
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  font-family: var(--font-mono);
+}
+.property-card-price .price-value{ color: var(--gold-light); font-size:1.05rem; }
+.property-card-price .price-label{ color: var(--text-on-ink-faint); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; }
+.property-card-link{
+  display:block;
+  text-align:center;
+  font-size:.88rem;
+  font-weight:600;
+  color: var(--ink);
+  background: var(--gold);
+  padding: .75rem 1rem;
+  transition: background-color .3s var(--ease);
+}
+.property-card-link:hover{ background: var(--gold-light); }
+
+/* ============================================================
+   Ficha de propiedad
+   ============================================================ */
+.property-detail{
+  display:grid;
+  gap: clamp(2.5rem, 5vw, 4rem);
+}
+@media (min-width: 940px){
+  .property-detail{ grid-template-columns: 1.1fr 0.9fr; align-items:start; }
+}
+.property-photo-main{ aspect-ratio: 4/3; }
+.property-photo-main.gallery-photo{ border: 1px solid var(--line-on-ink); }
+.property-detail-info h1{
+  font-family: var(--font-display);
+  font-weight:600;
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  margin-bottom: .5rem;
+}
+.property-detail-comuna{
+  font-family: var(--font-mono);
+  font-size:.8rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  display:block;
+}
+.property-detail-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem;
+  margin-bottom: 1.75rem;
+}
+.property-detail-price{
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  color: var(--gold-light);
+  margin-bottom: 1.75rem;
+}
+.property-detail-price-label{
+  display:block;
+  font-size:.72rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color: var(--text-on-ink-faint);
+  margin-bottom:.35rem;
+}
+.property-detail-desc{
+  color: var(--text-on-ink-soft);
+  font-size:1.02rem;
+  max-width: 52ch;
+  margin-bottom: 1.75rem;
+}
+.property-detail-amenities{ margin-bottom: 2.25rem; }
+.property-not-found{ text-align:center; padding-block: 3rem; }
+.property-not-found p{ color: var(--text-on-ink-soft); margin-bottom: 1.5rem; }
+
+/* ============================================================
+   Formulario de reserva
+   ============================================================ */
+.booking-layout{
+  display:grid;
+  gap: clamp(2.5rem, 5vw, 3.5rem);
+  align-items:start;
+}
+@media (min-width: 940px){
+  .booking-layout{ grid-template-columns: 1.1fr 0.9fr; }
+}
+.booking-form{ display:grid; gap: 1.75rem; }
+.form-group{ display:grid; gap:.5rem; }
+.form-row{ display:grid; gap: 1.25rem; }
+@media (min-width: 560px){
+  .form-row{ grid-template-columns: 1fr 1fr; }
+}
+.form-group label{
+  font-family: var(--font-mono);
+  font-size:.72rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color: var(--text-on-ink-faint);
+}
+.form-group input,
+.form-group select,
+.form-group textarea{
+  background: var(--ink-elevated);
+  border: 1px solid var(--line-on-ink);
+  color: var(--text-on-ink);
+  font-family: var(--font-body);
+  font-size:.95rem;
+  padding: .8rem 1rem;
+  border-radius: 2px;
+  width:100%;
+}
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.form-group textarea:focus-visible{
+  outline: 2px solid var(--gold-light);
+  outline-offset: 2px;
+}
+.form-group textarea{ resize: vertical; min-height: 5rem; }
+
+.form-alert{
+  display:none;
+  background: var(--danger-faint);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  font-size:.9rem;
+  padding: .9rem 1.1rem;
+  border-radius: 2px;
+}
+.form-alert.is-visible{ display:block; }
+
+.form-submit-note{
+  font-size:.85rem;
+  color: var(--text-on-ink-faint);
+  max-width: 46ch;
+}
+
+/* ---- Folio en vivo (reserva) ---- */
+.folio--static .folio-fields li,
+.folio--static .folio-rule,
+.folio--static .folio-seal{
+  opacity:1 !important;
+  transform:none !important;
+}
+.folio--static .folio-rule{ transform: scaleX(1) !important; }
+.booking-folio-wrap{ position:sticky; top: 6.5rem; }
+
+/* ============================================================
+   Teaser de propiedades (home)
+   ============================================================ */
+.galeria-teaser-cta{ margin-top: 2.5rem; text-align:center; }
+@media (min-width: 620px){
+  .galeria-teaser-cta{ text-align:left; }
 }
