@@ -826,28 +826,32 @@ body{
 .property-grid{
   margin-top: 2.5rem;
   display:grid;
-  gap: 1.5rem;
+  gap: 1.25rem;
   grid-template-columns: 1fr;
 }
-@media (min-width: 620px){
+@media (min-width: 560px){
   .property-grid{ grid-template-columns: repeat(2, 1fr); }
 }
-@media (min-width: 1020px){
+@media (min-width: 900px){
   .property-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1300px){
+  .property-grid{ grid-template-columns: repeat(4, 1fr); }
 }
 .property-card{
   display:flex;
   flex-direction:column;
+  min-width: 0;
   background: var(--ink-elevated);
   border: 1px solid var(--line-on-ink);
   transition: border-color .35s var(--ease), transform .35s var(--ease);
 }
 .property-card:hover{ border-color: var(--gold-dim); transform: translateY(-3px); }
 .property-card .gallery-photo{ aspect-ratio: 4/3; }
-.property-card-body{ padding: 1.5rem; display:flex; flex-direction:column; gap:.75rem; flex:1; }
+.property-card-body{ padding: 1.15rem; display:flex; flex-direction:column; gap:.55rem; flex:1; }
 .property-card-comuna{
   font-family: var(--font-mono);
-  font-size:.72rem;
+  font-size:.68rem;
   letter-spacing:.08em;
   text-transform:uppercase;
   color: var(--gold);
@@ -855,34 +859,35 @@ body{
 .property-card h3{
   font-family: var(--font-display);
   font-weight:600;
-  font-size:1.2rem;
+  font-size:1.05rem;
+  line-height:1.25;
 }
 .property-card-meta{
   display:flex;
   flex-wrap:wrap;
-  gap: .5rem .9rem;
-  font-size:.85rem;
+  gap: .35rem .7rem;
+  font-size:.78rem;
   color: var(--text-on-ink-soft);
 }
 .property-card-price{
   margin-top: auto;
-  padding-top: .75rem;
+  padding-top: .6rem;
   border-top: 1px solid var(--line-on-ink);
   display:flex;
   align-items:baseline;
   justify-content:space-between;
   font-family: var(--font-mono);
 }
-.property-card-price .price-value{ color: var(--gold-light); font-size:1.05rem; }
-.property-card-price .price-label{ color: var(--text-on-ink-faint); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; }
+.property-card-price .price-value{ color: var(--gold-light); font-size:.95rem; }
+.property-card-price .price-label{ color: var(--text-on-ink-faint); font-size:.66rem; letter-spacing:.06em; text-transform:uppercase; }
 .property-card-link{
   display:block;
   text-align:center;
-  font-size:.88rem;
+  font-size:.8rem;
   font-weight:600;
   color: var(--ink);
   background: var(--gold);
-  padding: .75rem 1rem;
+  padding: .6rem 1rem;
   transition: background-color .3s var(--ease);
 }
 .property-card-link:hover{ background: var(--gold-light); }
