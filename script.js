@@ -223,4 +223,83 @@
       finish();
     }, delay + duration + 1200);
   });
+
+  /* ============================================================
+     Movimiento al hacer scroll
+
+     Cada grupo entra en cascada: --i define el orden dentro del
+     grupo. Se marca desde aquí para no llenar el HTML de atributos.
+     ============================================================ */
+  const GRUPOS = [
+    '.section-head',
+    '.problema-intro',
+    '.pain-list > li',
+    '.servicio-group-head',
+    '.servicio-card',
+    '.proceso-list > li',
+    '.pillar',
+    '.band-inner',
+    '.cobertura-copy',
+    '.cobertura-photo',
+    '.gallery-grid > *',
+    '.cta-final .section-inner'
+  ];
+
+  const animables = [];
+  GRUPOS.forEach(selector => {
+    document.querySelectorAll('main ' + selector).forEach(el => {
+      const hermanos = el.parentElement ? [...el.parentElement.children] : [];
+      el.style.setProperty('--i', String(Math.max(0, hermanos.indexOf(el))));
+      el.setAttribute('data-scroll', '');
+      animables.push(el);
+    });
+  });
+
+  const sinObservador = prefersReducedMotion || !('IntersectionObserver' in window);
+  const observer = sinObservador ? null : new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-in');
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+
+  const animar = (el) => {
+    if (observer) observer.observe(el);
+    else el.classList.add('is-in');
+  };
+  animables.forEach(animar);
+
+  // Las tarjetas del catálogo llegan después (booking.js): se animan al aparecer
+  const teaser = document.querySelector('[data-property-teaser]');
+  if (teaser && 'MutationObserver' in window) {
+    new MutationObserver(() => {
+      [...teaser.children].forEach((el, i) => {
+        if (el.hasAttribute('data-scroll')) return;
+        el.style.setProperty('--i', String(i));
+        el.setAttribute('data-scroll', '');
+        animar(el);
+      });
+    }).observe(teaser, { childList: true });
+  }
+
+  /* ============================================================
+     Banda fotográfica: la foto se mueve más lento que la página
+     ============================================================ */
+  const bandImg = document.querySelector('.band img');
+  if (bandImg && !prefersReducedMotion) {
+    const band = bandImg.parentElement;
+    let pendiente = false;
+    const moverFoto = () => {
+      pendiente = false;
+      const r = band.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight) return;
+      const avance = (r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight;
+      bandImg.style.transform = 'translateY(' + (avance * -60).toFixed(1) + 'px) scale(1.15)';
+    };
+    window.addEventListener('scroll', () => {
+      if (!pendiente) { pendiente = true; requestAnimationFrame(moverFoto); }
+    }, { passive: true });
+    moverFoto();
+  }
 })();
