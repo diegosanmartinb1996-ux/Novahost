@@ -81,9 +81,6 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero" id="top">
-    <!-- Fotografía a sangre por la derecha. Se pinta desde CSS y solo en
-         pantallas anchas, así el celular nunca la descarga. -->
-    <div class="hero-photo" aria-hidden="true"></div>
     <div class="hero-inner">
       <div class="hero-copy">
         <p class="eyebrow" data-reveal>Administración de arriendo de corto plazo en Santiago</p>
@@ -105,6 +102,16 @@
           Evaluación sin costo y sin compromiso. Respondemos en menos de 24 horas.
         </p>
       </div>
+
+      <!-- Foto de la propiedad con el panel de ocupación encima.
+           La foto es un img real: se ve en celular y en escritorio. -->
+      <div class="hero-visual">
+      <img class="hero-img"
+           src="assets/hero-estar-900.jpg"
+           srcset="assets/hero-estar-900.jpg 900w, assets/hero-estar.jpg 1800w"
+           sizes="(min-width: 1120px) 45vw, 100vw"
+           alt="Living de un departamento con ventanales y vista a la ciudad"
+           width="900" height="600" fetchpriority="high">
 
       <!-- Elemento firma: el calendario de ocupación y las cifras del mes -->
       <div class="panel-shell">
@@ -136,6 +143,7 @@
           Así se ve el reporte que recibes cada mes. Las cifras son un ejemplo de formato,
           no una proyección de tu propiedad.
         </p>
+      </div>
       </div>
       </div>
     </div>
