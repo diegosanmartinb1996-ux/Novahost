@@ -3,21 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Novahost — Administración de arriendo de corto plazo, Santiago</title>
+<title>Novahost | Administración de arriendo de corto plazo, Santiago</title>
 <meta name="description" content="Administración integral de arriendo de corto plazo en toda la Región Metropolitana: reservas, huéspedes, limpieza y reportes claros. Tú recibes el ingreso.">
+<meta name="theme-color" content="#F1F2F5">
 <link rel="canonical" href="https://webnova.diegosanmartinb1996.workers.dev/">
 <!-- NOTA: actualizar canonical y todas las URL absolutas de esta sección cuando Novahost tenga dominio propio -->
 
-<meta property="og:title" content="Novahost — Tu propiedad genera ingresos. Nosotros hacemos el trabajo.">
+<meta property="og:title" content="Novahost | Tu propiedad genera ingresos. Nosotros hacemos el trabajo.">
 <meta property="og:description" content="Administración integral de arriendo de corto plazo en toda la Región Metropolitana de Santiago.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://webnova.diegosanmartinb1996.workers.dev/">
-<meta property="og:image" content="https://webnova.diegosanmartinb1996.workers.dev/assets/airbnb-dormitorio-anfitriones.jpg">
+<meta property="og:image" content="https://webnova.diegosanmartinb1996.workers.dev/assets/interior-estar.jpg">
 <meta property="og:locale" content="es_CL">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Novahost — Tu propiedad genera ingresos. Nosotros hacemos el trabajo.">
+<meta name="twitter:title" content="Novahost | Tu propiedad genera ingresos. Nosotros hacemos el trabajo.">
 <meta name="twitter:description" content="Administración integral de arriendo de corto plazo en toda la Región Metropolitana de Santiago.">
-<meta name="twitter:image" content="https://webnova.diegosanmartinb1996.workers.dev/assets/airbnb-dormitorio-anfitriones.jpg">
+<meta name="twitter:image" content="https://webnova.diegosanmartinb1996.workers.dev/assets/interior-estar.jpg">
 
 <link rel="icon" type="image/png" href="assets/novahost-logo.png">
 
@@ -37,15 +38,16 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
 <a class="skip-link" href="#main">Saltar al contenido</a>
 
-<header class="site-header" data-reveal-header>
+<header class="site-header" data-header>
   <div class="header-inner">
     <a href="#top" class="brand" aria-label="Novahost, inicio">
       <span class="brand-mark" aria-hidden="true">NH</span>
@@ -57,32 +59,47 @@
       <a href="#cobertura">Cobertura</a>
       <a href="propiedades.html">Reservar alojamiento</a>
     </nav>
-    <a class="btn btn-gold btn-nav" data-cta href="#" >Cotiza tu propiedad gratis</a>
+    <div class="header-actions">
+      <a class="btn btn-primary btn-nav" data-cta href="#">Cotiza tu propiedad</a>
+    </div>
+    <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+
+<nav class="mobile-nav" id="mobile-nav" data-mobile-nav aria-label="Menú móvil">
+  <a href="#servicios">Servicios</a>
+  <a href="#proceso">Cómo funciona</a>
+  <a href="#cobertura">Cobertura</a>
+  <a href="propiedades.html">Reservar alojamiento</a>
+  <a class="btn btn-primary btn-lg" data-cta href="#">Cotiza tu propiedad gratis</a>
+  <p class="mobile-nav-note">Evaluación sin costo y sin compromiso. Respondemos en 24 horas.</p>
+</nav>
 
 <main id="main">
 
   <!-- ============ HERO ============ -->
   <section class="hero" id="top">
-    <div class="hero-bg" aria-hidden="true">
-      <img src="assets/airbnb-dormitorio-anfitriones.jpg" alt="">
-    </div>
+    <!-- Fotografía a sangre por la derecha. Se pinta desde CSS y solo en
+         pantallas anchas, así el celular nunca la descarga. -->
+    <div class="hero-photo" aria-hidden="true"></div>
     <div class="hero-inner">
       <div class="hero-copy">
         <p class="eyebrow" data-reveal>Gestión integral de arriendo · Región Metropolitana</p>
         <h1 class="hero-title" data-hero-title>
-          <span class="line">Tu propiedad</span>
-          <span class="line"><em>genera ingresos.</em></span>
-          <span class="line">Nosotros hacemos</span>
-          <span class="line"><em>el trabajo.</em></span>
+          <span class="line"><span>Tu propiedad</span></span>
+          <span class="line"><span><em>genera ingresos.</em></span></span>
+          <span class="line"><span>Nosotros hacemos</span></span>
+          <span class="line"><span><em>el trabajo.</em></span></span>
         </h1>
         <p class="hero-sub" data-reveal>
-          Reservas, huéspedes, limpieza, precios y mantención — administrados de principio a fin,
-          con reportes tan claros como los de un hotel. Tú recibes el ingreso; nosotros nos hacemos cargo del resto.
+          Reservas, huéspedes, limpieza, precios y mantención, administrados de principio a fin
+          y con reportes tan claros como los de un hotel. Tú recibes el ingreso; nosotros nos
+          hacemos cargo del resto.
         </p>
         <div class="hero-actions" data-reveal>
-          <a class="btn btn-gold btn-lg" data-cta href="#">Cotiza tu propiedad gratis</a>
+          <a class="btn btn-primary btn-lg" data-cta href="#">Cotiza tu propiedad gratis</a>
           <a class="hero-secondary" href="#diferenciador">Por qué Novahost <span aria-hidden="true">↓</span></a>
         </div>
         <p class="hero-trust" data-reveal>
@@ -94,29 +111,39 @@
         </p>
       </div>
 
-      <div class="folio-wrap">
-        <p class="folio-caption" data-folio-caption>Así se ve tu reporte cada mes</p>
-        <div class="folio" data-folio aria-hidden="true">
-          <div class="folio-head">
-            <span class="folio-label">Folio</span>
-            <span class="folio-label folio-label-dim">Reporte mensual</span>
-          </div>
-          <div class="folio-rule" data-folio-rule></div>
-          <ul class="folio-fields">
-            <li data-folio-field><span>Ocupación</span><span class="folio-value">—</span></li>
-            <li data-folio-field><span>Ingresos brutos</span><span class="folio-value">—</span></li>
-            <li data-folio-field><span>Noches reservadas</span><span class="folio-value">—</span></li>
-            <li data-folio-field><span>Huéspedes atendidos</span><span class="folio-value">—</span></li>
-          </ul>
-          <div class="folio-rule" data-folio-rule></div>
-          <div class="folio-seal" data-folio-seal>
-            <span class="seal-ring" aria-hidden="true"></span>
-            <span class="seal-text">Auditado cada noche</span>
-          </div>
+      <!-- Elemento firma: el calendario de ocupación y las cifras del mes -->
+      <div class="panel-shell">
+      <div class="panel" data-panel>
+        <div class="panel-head">
+          <p class="panel-title">Ocupación del mes</p>
+          <span class="panel-tag">Ejemplo</span>
         </div>
+        <div class="panel-cal" data-panel-cal aria-hidden="true"></div>
+        <div class="panel-legend" aria-hidden="true">
+          <span><i class="legend-booked"></i> Noche reservada</span>
+          <span><i class="legend-free"></i> Disponible</span>
+        </div>
+        <dl class="panel-stats">
+          <div>
+            <dt>Ocupación</dt>
+            <dd data-count="87" data-count-suffix="%">0%</dd>
+          </div>
+          <div>
+            <dt>Noches</dt>
+            <dd data-count="26">0</dd>
+          </div>
+          <div>
+            <dt>Ingreso</dt>
+            <dd data-count="1380000" data-count-format="clp">$0</dd>
+          </div>
+        </dl>
+        <p class="panel-foot">
+          Así se ve el reporte que recibes cada mes. Las cifras son un ejemplo de formato,
+          no una proyección de tu propiedad.
+        </p>
+      </div>
       </div>
     </div>
-    <div class="hero-fade" aria-hidden="true"></div>
   </section>
 
   <!-- ============ POR QUÉ DELEGAR ============ -->
@@ -124,32 +151,26 @@
     <div class="section-inner">
       <div class="problema-grid">
         <div class="problema-intro">
-          <p class="eyebrow" data-reveal>El costo de hacerlo solo</p>
-          <h2 class="section-title" data-reveal>
-            Administrar tu propio arriendo de corto plazo<br>
-            cuesta más de lo que se ve en la cuenta.
+          <h2 class="section-title">
+            Administrar tu propio arriendo cuesta más de lo que se ve en la cuenta.
           </h2>
-          <p class="section-copy" data-reveal>
-            Ya sea que arriendes hace tiempo por tu cuenta o acabas de comprar una propiedad
+          <p class="section-copy">
+            Ya sea que arriendes hace tiempo por tu cuenta o acabes de comprar una propiedad
             para invertir, el problema es el mismo: la operación diaria se come el tiempo
             y el ingreso que la propiedad podría generar.
           </p>
         </div>
-        <ul class="pain-list" data-reveal-group>
-          <li data-reveal>
-            <span class="pain-index" aria-hidden="true">·</span>
+        <ul class="pain-list">
+          <li>
             Mensajes de huéspedes a cualquier hora, todos los días.
           </li>
-          <li data-reveal>
-            <span class="pain-index" aria-hidden="true">·</span>
+          <li>
             Precios que no se ajustan a la demanda real de cada semana.
           </li>
-          <li data-reveal>
-            <span class="pain-index" aria-hidden="true">·</span>
+          <li>
             Limpieza y mantención que dependen de que tú estés encima.
           </li>
-          <li data-reveal>
-            <span class="pain-index" aria-hidden="true">·</span>
+          <li>
             Una propiedad que factura menos de lo que podría, solo por falta de tiempo.
           </li>
         </ul>
@@ -160,75 +181,89 @@
   <!-- ============ SERVICIOS ============ -->
   <section class="section servicios" id="servicios">
     <div class="section-inner">
-      <p class="eyebrow" data-reveal>Lo que hacemos</p>
-      <h2 class="section-title" data-reveal>Todo lo que tu propiedad necesita para rentar bien.</h2>
+      <div class="section-head">
+        <h2 class="section-title">Todo lo que tu propiedad necesita para rentar bien.</h2>
+      </div>
 
-      <div class="servicios-grid" data-reveal-group>
-        <article class="servicio-card" data-reveal>
-          <p class="servicio-tag">Reservas</p>
-          <h3>Gestión de reservas</h3>
-          <p>Coordinamos calendario, plataformas y confirmaciones para que nunca quede una fecha suelta.</p>
-        </article>
-        <article class="servicio-card" data-reveal>
-          <p class="servicio-tag">24/7</p>
-          <h3>Atención a huéspedes</h3>
-          <p>Respondemos consultas, check-in y cualquier imprevisto a toda hora, todos los días.</p>
-        </article>
-        <article class="servicio-card" data-reveal>
-          <p class="servicio-tag">Detalle</p>
-          <h3>Limpieza y mantención</h3>
-          <p>Equipo coordinado entre cada estadía, con el mismo cuidado que un hotel boutique.</p>
-        </article>
-        <article class="servicio-card" data-reveal>
-          <p class="servicio-tag">Pricing</p>
-          <h3>Precio dinámico</h3>
-          <p>Ajustamos la tarifa según temporada, demanda y comportamiento del mercado en tu zona.</p>
-        </article>
-        <article class="servicio-card" data-reveal>
-          <p class="servicio-tag">Styling</p>
-          <h3>Ambientación y equipamiento</h3>
-          <p>Preparamos, equipamos y retratamos tu propiedad — desde el mobiliario hasta el último detalle — para que compita con las mejores publicaciones.</p>
-        </article>
-        <article class="servicio-card" data-reveal>
-          <p class="servicio-tag">Distribución</p>
-          <h3>Publicación multiplataforma</h3>
-          <p>Tu propiedad visible en los canales que más reservan en tu zona.</p>
-          <ul class="platform-chips">
-            <li>Airbnb</li>
-            <li>Booking.com</li>
-            <li>Vrbo</li>
-          </ul>
-        </article>
+      <!-- Dos grupos, no seis tarjetas iguales: el montaje ocurre una vez,
+           la operación se repite cada mes. La diferencia es real, así que
+           el tamaño de cada grupo la refleja. -->
+      <div class="servicio-group">
+        <div class="servicio-group-head">
+          <h3 class="servicio-group-title">El montaje</h3>
+          <p class="servicio-group-note">Una vez, antes de la primera publicación.</p>
+        </div>
+        <div class="servicios-grid servicios-grid--montaje">
+          <article class="servicio-card">
+            <h4>Ambientación y equipamiento</h4>
+            <p>Preparamos, equipamos y retratamos tu propiedad, desde el mobiliario hasta el último detalle, para que compita con las mejores publicaciones.</p>
+          </article>
+          <article class="servicio-card">
+            <h4>Publicación multiplataforma</h4>
+            <p>Tu propiedad visible en los canales que más reservan en tu zona.</p>
+            <ul class="platform-chips">
+              <li>Airbnb</li>
+              <li>Booking.com</li>
+              <li>Vrbo</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <div class="servicio-group">
+        <div class="servicio-group-head">
+          <h3 class="servicio-group-title">La operación</h3>
+          <p class="servicio-group-note">Todos los meses, sin que intervengas.</p>
+        </div>
+        <div class="servicios-grid servicios-grid--operacion">
+          <article class="servicio-card">
+            <h4>Gestión de reservas</h4>
+            <p>Coordinamos calendario, plataformas y confirmaciones para que nunca quede una fecha suelta.</p>
+          </article>
+          <article class="servicio-card">
+            <h4>Atención a huéspedes</h4>
+            <p>Respondemos consultas, check-in y cualquier imprevisto a toda hora, todos los días.</p>
+          </article>
+          <article class="servicio-card">
+            <h4>Limpieza y mantención</h4>
+            <p>Equipo coordinado entre cada estadía, con el mismo cuidado que un hotel boutique.</p>
+          </article>
+          <article class="servicio-card">
+            <h4>Precio dinámico</h4>
+            <p>Ajustamos la tarifa según temporada, demanda y comportamiento del mercado en tu zona.</p>
+          </article>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ CÓMO FUNCIONA (fondo claro) ============ -->
-  <section class="section proceso" id="proceso">
+  <!-- ============ CÓMO FUNCIONA (sección oscura) ============ -->
+  <section class="section section--ink proceso" id="proceso">
     <div class="section-inner">
-      <p class="eyebrow eyebrow-dark" data-reveal>El proceso</p>
-      <h2 class="section-title section-title-dark" data-reveal>De la primera visita al primer huésped.</h2>
+      <div class="section-head">
+        <h2 class="section-title">De la primera visita al primer huésped.</h2>
+      </div>
 
-      <ol class="proceso-list" data-reveal-group>
-        <li data-reveal>
+      <ol class="proceso-list">
+        <li>
           <span class="proceso-num">01</span>
           <h3>Visita y evaluación</h3>
           <p>Conocemos tu propiedad y definimos su potencial real de arriendo.</p>
         </li>
-        <li data-reveal>
+        <li>
           <span class="proceso-num">02</span>
           <h3>Preparación</h3>
           <p>Dejamos tu propiedad lista para su primera publicación, sin que tengas que coordinar nada tú.</p>
         </li>
-        <li data-reveal>
+        <li>
           <span class="proceso-num">03</span>
           <h3>Puesta en marcha</h3>
           <p>Tu propiedad queda operando: recibe su primera reserva y su primer huésped.</p>
         </li>
-        <li data-reveal>
+        <li>
           <span class="proceso-num">04</span>
           <h3>Reporte mensual</h3>
-          <p>Recibes tu folio de ocupación e ingresos, sin mover un dedo.</p>
+          <p>Recibes tu reporte de ocupación e ingresos, sin mover un dedo.</p>
         </li>
       </ol>
     </div>
@@ -237,23 +272,40 @@
   <!-- ============ DIFERENCIADOR ============ -->
   <section class="section diferenciador" id="diferenciador">
     <div class="section-inner">
-      <p class="eyebrow" data-reveal>Por qué Novahost</p>
-      <h2 class="section-title" data-reveal>Tres decisiones que tomamos distinto.</h2>
+      <div class="section-head">
+        <h2 class="section-title">Tres decisiones que tomamos distinto.</h2>
+      </div>
 
-      <div class="pillars" data-reveal-group>
-        <div class="pillar" data-reveal>
+      <div class="pillars">
+        <div class="pillar">
           <span class="pillar-label">Transparencia</span>
-          <p>Reportes claros de ocupación e ingresos, no promesas verbales. Ves exactamente cómo le está yendo a tu propiedad.</p>
+          <p>Cada mes recibes un reporte con la ocupación y el ingreso de tu propiedad, noche por noche. No tienes que llamar a preguntar cómo va.</p>
         </div>
-        <div class="pillar" data-reveal>
+        <div class="pillar">
           <span class="pillar-label">Servicio boutique</span>
-          <p>Pocas propiedades por gestor, para dar atención real — no un call center repartido entre cientos de departamentos.</p>
+          <p>Un gestor con pocas propiedades a cargo, no un call center. Cuando escribes, responde alguien que conoce tu departamento por dentro.</p>
         </div>
-        <div class="pillar" data-reveal>
+        <div class="pillar">
           <span class="pillar-label">Estándar hotelero</span>
-          <p>Cada detalle de la experiencia del huésped cuidado como en un hotel, desde el check-in hasta la limpieza.</p>
+          <p>El huésped recibe instrucciones de llegada, acceso y contacto antes de viajar. Nadie llega a una puerta sin saber qué hacer.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ BANDA FOTOGRÁFICA ============ -->
+  <section class="band">
+    <img src="assets/interior-estar.jpg"
+         srcset="assets/interior-estar-800.jpg 800w, assets/interior-estar.jpg 1600w"
+         sizes="100vw"
+         alt="Living de un departamento preparado para recibir huéspedes"
+         loading="lazy" width="1600" height="1200">
+    <div class="band-inner">
+      <h2 class="band-title">Cada estadía preparada como si fuera la primera.</h2>
+      <p class="band-note">
+        Limpieza, ropa de cama, amenities y revisión completa de la propiedad entre
+        un huésped y el siguiente. Sin que tengas que coordinar nada.
+      </p>
     </div>
   </section>
 
@@ -261,68 +313,78 @@
   <section class="section cobertura" id="cobertura">
     <div class="section-inner cobertura-grid">
       <div class="cobertura-copy">
-        <p class="eyebrow" data-reveal>Cobertura</p>
-        <h2 class="section-title" data-reveal>Operamos en toda la Región Metropolitana.</h2>
-        <p class="section-copy" data-reveal>
-          Da lo mismo si tu propiedad está en el oriente, el centro o cualquier otra comuna de Santiago:
-          administramos con el mismo estándar en toda la RM.
+        <h2 class="section-title">Operamos en toda la Región Metropolitana.</h2>
+        <p class="section-copy">
+          Da lo mismo si tu propiedad está en el oriente, el centro o cualquier otra comuna
+          de Santiago: administramos con el mismo estándar en toda la RM.
         </p>
-        <ul class="comuna-chips" data-reveal>
-          <li>Santiago Centro</li>
-          <li>Providencia</li>
-          <li>Las Condes</li>
-          <li>Vitacura</li>
-          <li>Ñuñoa</li>
-          <li>La Reina</li>
-          <li>Lo Barnechea</li>
-          <li>Huechuraba</li>
-          <li>La Florida</li>
-          <li>Macul</li>
-        </ul>
+
+        <div class="sector-list">
+          <div>
+            <p class="sector-name">Sector oriente</p>
+            <ul class="comuna-chips">
+              <li>Providencia</li>
+              <li>Las Condes</li>
+              <li>Vitacura</li>
+              <li>Lo Barnechea</li>
+              <li>La Reina</li>
+            </ul>
+          </div>
+          <div>
+            <p class="sector-name">Centro y pericentro</p>
+            <ul class="comuna-chips">
+              <li>Santiago Centro</li>
+              <li>Ñuñoa</li>
+              <li>Macul</li>
+            </ul>
+          </div>
+          <div>
+            <p class="sector-name">Norte y sur</p>
+            <ul class="comuna-chips">
+              <li>Huechuraba</li>
+              <li>La Florida</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="cobertura-map" data-reveal aria-hidden="true">
-        <svg viewBox="0 0 400 460" fill="none" xmlns="http://www.w3.org/2000/svg" class="map-svg">
-          <path data-map-outline d="M180 12 C120 20 84 60 76 110 C68 158 40 178 34 226 C28 274 58 300 66 340 C74 380 116 402 172 414 C228 426 288 418 322 380 C356 342 350 296 366 254 C382 212 372 162 340 122 C308 82 300 48 252 26 C224 12 200 8 180 12 Z" stroke="var(--gold)" stroke-width="1.5"/>
-          <g class="map-dots" stroke="var(--gold)">
-            <circle cx="190" cy="180" r="4"/>
-            <circle cx="230" cy="210" r="3"/>
-            <circle cx="160" cy="230" r="3"/>
-            <circle cx="210" cy="260" r="5"/>
-            <circle cx="150" cy="160" r="3"/>
-            <circle cx="250" cy="160" r="3"/>
-            <circle cx="180" cy="310" r="3"/>
-          </g>
-        </svg>
-      </div>
+
+      <figure class="cobertura-photo">
+        <img src="assets/santiago-cordillera.jpg"
+             srcset="assets/santiago-cordillera-800.jpg 800w, assets/santiago-cordillera.jpg 1600w"
+             sizes="(min-width: 980px) 40vw, 100vw"
+             alt="Vista de Santiago con la cordillera de los Andes al fondo"
+             loading="lazy" width="1600" height="1067">
+        <figcaption>Región Metropolitana · 10 comunas operadas</figcaption>
+      </figure>
     </div>
   </section>
 
   <!-- ============ GALERÍA (teaser del catálogo) ============ -->
   <section class="section galeria" id="galeria">
     <div class="section-inner">
-      <p class="eyebrow" data-reveal>Propiedades</p>
-      <h2 class="section-title" data-reveal>Reserva directo en las propiedades que administramos.</h2>
-      <p class="section-copy" data-reveal>
-        Además de administrar tu propiedad, abrimos un canal de reserva directa para huéspedes,
-        sin comisión de plataformas externas. Estas son algunas de las propiedades disponibles.
-      </p>
+      <div class="section-head">
+        <h2 class="section-title">Reserva directo en las propiedades que administramos.</h2>
+        <p class="section-copy">
+          Además de administrar tu propiedad, abrimos un canal de reserva directa para huéspedes,
+          sin comisión de plataformas externas. Estas son algunas de las propiedades disponibles.
+        </p>
+      </div>
 
       <!-- Las tarjetas se generan desde assets/properties.js (booking.js) -->
-      <div class="gallery-grid" data-reveal-group data-property-teaser></div>
+      <div class="gallery-grid" data-property-teaser></div>
 
-      <div class="galeria-teaser-cta" data-reveal>
-        <a class="btn btn-gold btn-lg" href="propiedades.html">Ver todas las propiedades</a>
+      <div class="galeria-teaser-cta">
+        <a class="btn btn-ghost btn-lg" href="propiedades.html">Ver todas las propiedades</a>
       </div>
     </div>
   </section>
 
-  <!-- ============ CTA FINAL ============ -->
-  <section class="section cta-final">
+  <!-- ============ CTA FINAL (sección oscura) ============ -->
+  <section class="section section--ink cta-final">
     <div class="section-inner">
-      <p class="eyebrow" data-reveal>Empecemos</p>
-      <h2 class="cta-final-title" data-reveal>Tu propiedad, administrada<br>como un hotel boutique.</h2>
-      <div class="cta-final-rule" data-reveal aria-hidden="true"></div>
-      <a class="btn btn-gold btn-lg" data-cta href="#" data-reveal>Cotiza tu propiedad gratis</a>
+      <h2 class="cta-final-title">Tu propiedad, administrada<br>como un hotel boutique.</h2>
+      <div class="cta-final-rule" aria-hidden="true"></div>
+      <a class="btn btn-primary btn-lg" data-cta href="#">Cotiza tu propiedad gratis</a>
     </div>
   </section>
 
@@ -352,9 +414,11 @@
   </div>
 </footer>
 
+<div class="mobile-cta" data-mobile-cta>
+  <a class="btn btn-primary" data-cta href="#">Cotiza tu propiedad gratis</a>
+</div>
+
 <script src="assets/config.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="script.js"></script>
 <script src="assets/properties.js"></script>
 <script src="booking.js"></script>

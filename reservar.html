@@ -3,22 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Solicitar reserva — Novahost</title>
+<link rel="canonical" href="https://webnova.diegosanmartinb1996.workers.dev/reservar.html">
+<meta name="theme-color" content="#F1F2F5">
+<title>Solicitar reserva | Novahost</title>
 <meta name="description" content="Envía tu solicitud de reserva para una propiedad administrada por Novahost en Santiago. Te confirmamos disponibilidad real por WhatsApp.">
+
+<meta property="og:title" content="Solicitar reserva | Novahost">
+<meta property="og:description" content="Envía tu solicitud de reserva para una propiedad administrada por Novahost en Santiago. Te confirmamos disponibilidad real por WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://webnova.diegosanmartinb1996.workers.dev/reservar.html">
+<meta property="og:image" content="https://webnova.diegosanmartinb1996.workers.dev/assets/interior-estar.jpg">
+<meta property="og:locale" content="es_CL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Solicitar reserva | Novahost">
+<meta name="twitter:description" content="Envía tu solicitud de reserva para una propiedad administrada por Novahost en Santiago. Te confirmamos disponibilidad real por WhatsApp.">
+<meta name="twitter:image" content="https://webnova.diegosanmartinb1996.workers.dev/assets/interior-estar.jpg">
 
 <link rel="icon" type="image/png" href="assets/novahost-logo.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
 <a class="skip-link" href="#main">Saltar al contenido</a>
 
-<header class="site-header" data-reveal-header>
+<header class="site-header" data-header>
   <div class="header-inner">
     <a href="index.html" class="brand" aria-label="Novahost, inicio">
       <span class="brand-mark" aria-hidden="true">NH</span>
@@ -32,24 +46,40 @@
     </nav>
     <div class="header-actions">
       <a class="header-secondary" data-cta href="#">¿Eres propietario? Cotiza aquí</a>
-      <a class="btn btn-gold btn-nav" href="reservar.html">Reservar alojamiento</a>
+      <a class="btn btn-primary btn-nav" href="reservar.html">Reservar alojamiento</a>
     </div>
+    <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+
+<nav class="mobile-nav" id="mobile-nav" data-mobile-nav aria-label="Menú móvil">
+  <a href="index.html">Inicio</a>
+  <a href="propiedades.html">Propiedades</a>
+  <a href="index.html#servicios">Servicios</a>
+  <a href="index.html#cobertura">Cobertura</a>
+  <a class="btn btn-primary btn-lg" href="reservar.html">Reservar alojamiento</a>
+  <p class="mobile-nav-note">¿Eres propietario? <a data-cta href="#">Cotiza la administración de tu propiedad</a>.</p>
+</nav>
 
 <main id="main">
 
   <section class="page-header section">
     <div class="section-inner">
       <a class="back-link" href="propiedades.html">← Volver al catálogo</a>
-      <p class="eyebrow" data-reveal>Solicitud de reserva</p>
-      <h1 class="section-title" data-reveal>Cuéntanos qué necesitas y coordinamos el resto.</h1>
-      <p class="section-copy" data-reveal>
-        Completa tus datos y fechas. Tu solicitud se prepara al instante y la enviamos por WhatsApp —
-        nuestro equipo te confirma la disponibilidad real en menos de 24 horas.
+      <h1 class="section-title">Cuéntanos qué necesitas y coordinamos el resto.</h1>
+      <p class="section-copy">
+        Completa tus datos y fechas. Tu solicitud se prepara al instante y la enviamos por WhatsApp.
+        Nuestro equipo te confirma la disponibilidad real en menos de 24 horas.
       </p>
 
-      <div class="booking-layout" data-reveal>
+      <noscript>
+        <p class="noscript-aviso">
+          El formulario de reserva necesita JavaScript para funcionar. Escríbenos por WhatsApp y te respondemos con la información que necesitas.
+        </p>
+      </noscript>
+      <div class="booking-layout">
         <form class="booking-form" data-booking-form novalidate>
           <div class="form-group">
             <label for="booking-property">Propiedad</label>
@@ -95,9 +125,9 @@
             <textarea id="booking-note" data-booking-note></textarea>
           </div>
 
-          <p class="form-alert" data-booking-alert></p>
+          <p class="form-alert" data-booking-alert role="alert" aria-live="assertive"></p>
 
-          <button class="btn btn-gold btn-lg" type="submit">Enviar solicitud por WhatsApp</button>
+          <button class="btn btn-primary btn-lg" type="submit">Enviar solicitud por WhatsApp</button>
           <p class="form-submit-note">Esto no confirma la reserva de inmediato: es una solicitud. Te confirmamos disponibilidad real por WhatsApp.</p>
         </form>
 
@@ -110,11 +140,11 @@
             </div>
             <div class="folio-rule"></div>
             <ul class="folio-fields">
-              <li><span>Propiedad</span><span class="folio-value" data-folio-property>—</span></li>
-              <li><span>Fechas</span><span class="folio-value" data-folio-fechas>—</span></li>
-              <li><span>Noches</span><span class="folio-value" data-folio-noches>—</span></li>
-              <li><span>Huéspedes</span><span class="folio-value" data-folio-huespedes>—</span></li>
-              <li><span>Nombre</span><span class="folio-value" data-folio-nombre>—</span></li>
+              <li><span>Propiedad</span><span class="folio-value" data-folio-property>Pendiente</span></li>
+              <li><span>Fechas</span><span class="folio-value" data-folio-fechas>Pendiente</span></li>
+              <li><span>Noches</span><span class="folio-value" data-folio-noches>Pendiente</span></li>
+              <li><span>Huéspedes</span><span class="folio-value" data-folio-huespedes>Pendiente</span></li>
+              <li><span>Nombre</span><span class="folio-value" data-folio-nombre>Pendiente</span></li>
             </ul>
             <div class="folio-rule"></div>
             <div class="folio-seal">
@@ -154,8 +184,6 @@
 </footer>
 
 <script src="assets/config.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="script.js"></script>
 <script src="assets/properties.js"></script>
 <script src="booking.js"></script>

@@ -1,5 +1,5 @@
 /* ============================================================
-   NOVAHOST — Configuración compartida de WhatsApp
+   NOVAHOST: configuración compartida de WhatsApp
    Usado por script.js (CTA genérico) y booking.js (reservas).
    Editar el teléfono acá cuando el cliente confirme el número real.
    ============================================================ */

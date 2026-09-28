@@ -1,5 +1,5 @@
 /* ============================================================
-   NOVAHOST — Catálogo de propiedades
+   NOVAHOST | Catálogo de propiedades
    ============================================================
 
    Este archivo es la ÚNICA fuente de datos para el catálogo
@@ -21,11 +21,18 @@
       "fotos": ["assets/gallery/nombre-1.jpg", "assets/gallery/nombre-2.jpg"].
       Mientras "fotos" esté vacío (fotos: []), la propiedad se muestra
       con el mismo aviso "Fotografía pendiente" que ya se usa en el
-      resto del sitio — nunca se inventan fotos de stock.
+      resto del sitio. Nunca se inventan fotos de stock.
    5. fechasNoDisponibles: cada vez que confirmes una reserva a mano
       (por WhatsApp), agrega el rango de fechas acá para que el
       formulario de reserva avise si alguien más intenta pedir esas
       mismas fechas. Formato: { inicio: "AAAA-MM-DD", fin: "AAAA-MM-DD" }.
+
+   SI UNA PROPIEDAD NO APARECE
+   ---------------------------
+   Le falta "id" o le falta "nombre". El sitio descarta en silencio las
+   propiedades sin esos dos campos, en vez de dejar en blanco el catálogo
+   entero. Los campos "fotos", "amenities" y "fechasNoDisponibles" pueden
+   faltar sin romper nada: se asumen vacíos.
 
    IMPORTANTE
    ----------
@@ -37,7 +44,7 @@
 const PROPERTIES = [
   {
     id: 'depto-santiago-centro-1',
-    nombre: 'Depto ejemplo — Santiago Centro',
+    nombre: 'Departamento céntrico (ejemplo)',
     comuna: 'Santiago Centro',
     tipo: 'Departamento',
     capacidad: 4,
@@ -51,7 +58,7 @@ const PROPERTIES = [
   },
   {
     id: 'depto-providencia-1',
-    nombre: 'Depto ejemplo — Providencia',
+    nombre: 'Departamento con vista (ejemplo)',
     comuna: 'Providencia',
     tipo: 'Departamento',
     capacidad: 3,
@@ -67,7 +74,7 @@ const PROPERTIES = [
   },
   {
     id: 'depto-las-condes-1',
-    nombre: 'Depto ejemplo — Las Condes',
+    nombre: 'Departamento familiar (ejemplo)',
     comuna: 'Las Condes',
     tipo: 'Departamento',
     capacidad: 5,
@@ -81,7 +88,7 @@ const PROPERTIES = [
   },
   {
     id: 'casa-vitacura-1',
-    nombre: 'Casa ejemplo — Vitacura',
+    nombre: 'Casa con jardín (ejemplo)',
     comuna: 'Vitacura',
     tipo: 'Casa',
     capacidad: 8,
@@ -95,7 +102,7 @@ const PROPERTIES = [
   },
   {
     id: 'depto-nunoa-1',
-    nombre: 'Depto ejemplo — Ñuñoa',
+    nombre: 'Estudio para dos (ejemplo)',
     comuna: 'Ñuñoa',
     tipo: 'Departamento',
     capacidad: 2,
@@ -109,7 +116,7 @@ const PROPERTIES = [
   },
   {
     id: 'depto-la-reina-1',
-    nombre: 'Depto ejemplo — La Reina',
+    nombre: 'Departamento tranquilo (ejemplo)',
     comuna: 'La Reina',
     tipo: 'Departamento',
     capacidad: 4,
