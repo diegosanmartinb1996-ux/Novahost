@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="270" viewBox="0 0 880 270" role="img" aria-labelledby="title desc">
+<title id="title">ALTARIA</title>
+<desc id="desc">Logo corporativo ALTARIA sin eslogan. Trazados vectoriales editables, sin imágenes ni fuentes externas.</desc>
+  <path id="simbolo-navy" fill="#0B2139" fill-rule="evenodd" d="M 24.5 245 L 144 24.5 L 190.3 107.9 L 158.5 123 L 144.5 100.7 L 71 237.3 C 67.9 242.7 63.2 245 55.5 245 Z "/>
+  <path id="simbolo-green" fill="#0EAA72" fill-rule="evenodd" d="M 226 101.5 C 183.5 114.6 133.5 151.6 100.1 181.9 C 90.7 198.8 80.4 218 70.1 237.8 C 103.8 211.1 138.7 185.3 168.8 172.1 C 174.8 169.6 177.9 170.8 181.4 175.7 C 188.3 185.1 191.6 195.5 190.2 206.5 C 188.8 222.2 178.7 235.7 164.5 245.7 C 191.4 242.1 205.5 231.9 213.6 215.8 C 226.6 191.3 224.7 170.2 210.8 146.3 C 207 139.8 203.1 136.9 206.6 129.3 C 210.2 121.3 221.1 110.3 226 101.5 Z "/>
+  <path id="letra-1" fill="#0B2139" fill-rule="evenodd" d="M 268 185.5 L 306 84.5 L 328 84.5 L 366 185.5 L 344 185.5 L 337 166.5 L 297 166.5 L 290 185.5 Z  M 317 110.5 L 303 148.5 L 331 148.5 Z "/>
+  <path id="letra-2" fill="#0B2139" fill-rule="evenodd" d="M 380 84.5 L 401 84.5 L 401 167.5 L 440 167.5 L 440 185.5 L 380 185.5 Z "/>
+  <path id="letra-3" fill="#0B2139" fill-rule="evenodd" d="M 434 84.5 L 506 84.5 L 506 103.5 L 481 103.5 L 481 185.5 L 461 185.5 L 461 103.5 L 434 103.5 Z "/>
+  <path id="letra-4" fill="#0B2139" fill-rule="evenodd" d="M 506 185.5 L 544 84.5 L 566 84.5 L 604 185.5 L 582 185.5 L 575 166.5 L 535 166.5 L 528 185.5 Z  M 555 110.5 L 541 148.5 L 569 148.5 Z "/>
+  <path id="letra-5" fill="#0B2139" fill-rule="evenodd" d="M 618 84.5 L 658 84.5 C 681.6 84.5 695 96.6 695 116.6 C 695 130.5 689.8 140.7 676.6 147.1 L 698 185.5 L 675 185.5 L 654 149.5 L 639 149.5 L 639 185.5 L 618 185.5 Z  M 639 103.5 L 639 132.5 L 657.5 132.5 C 669.1 132.5 675.5 127.3 675.5 118.2 C 675.5 108.7 669 103.5 657.5 103.5 Z "/>
+  <path id="letra-6" fill="#0B2139" fill-rule="evenodd" d="M 718 84.5 L 738 84.5 L 738 185.5 L 718 185.5 Z "/>
+  <path id="letra-7" fill="#0B2139" fill-rule="evenodd" d="M 755 185.5 L 793 84.5 L 815 84.5 L 853 185.5 L 831 185.5 L 824 166.5 L 784 166.5 L 777 185.5 Z  M 804 110.5 L 790 148.5 L 818 148.5 Z "/>
+</svg>

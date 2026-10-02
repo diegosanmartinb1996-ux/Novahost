@@ -132,7 +132,7 @@
       detailRoot.hidden = true;
       if (notFound) notFound.hidden = false;
     } else {
-      document.title = `${property.nombre} | Novahost`;
+      document.title = `${property.nombre} | ALTARIA`;
 
       /* La tarjeta de WhatsApp: sin esto, compartir una ficha concreta
          mostraba el título genérico y el enlace del catálogo. */
@@ -140,8 +140,8 @@
         const el = document.querySelector(sel);
         if (el && valor) el.setAttribute('content', valor);
       };
-      meta('meta[property="og:title"]', `${property.nombre}, ${property.comuna} | Novahost`);
-      meta('meta[name="twitter:title"]', `${property.nombre}, ${property.comuna} | Novahost`);
+      meta('meta[property="og:title"]', `${property.nombre}, ${property.comuna} | ALTARIA`);
+      meta('meta[name="twitter:title"]', `${property.nombre}, ${property.comuna} | ALTARIA`);
       meta('meta[property="og:url"]', location.href);
       if (property.descripcion) {
         meta('meta[property="og:description"]', property.descripcion);
@@ -315,7 +315,7 @@
       const property = currentProperty();
       const n = nights(checkinInput.value, checkoutInput.value);
       const message = [
-        'Hola, quiero solicitar una reserva en Novahost:',
+        'Hola, quiero solicitar una reserva en ALTARIA:',
         `Propiedad: ${property.nombre} (${property.comuna})`,
         `Llegada: ${checkinInput.value}`,
         `Salida: ${checkoutInput.value} (${n} noche${n === 1 ? '' : 's'})`,
@@ -326,7 +326,7 @@
         noteInput.value ? `Comentario: ${noteInput.value}` : null
       ].filter(Boolean).join('\n');
 
-      const ventana = window.open(novahostWhatsAppLink(message), '_blank', 'noopener');
+      const ventana = window.open(altariaWhatsAppLink(message), '_blank', 'noopener');
       if (!ventana) mostrarRespaldo(message);
     });
 
@@ -370,7 +370,7 @@
 
       const abrir = document.createElement('a');
       abrir.className = 'btn btn-primary';
-      abrir.href = novahostWhatsAppLink(message);
+      abrir.href = altariaWhatsAppLink(message);
       abrir.target = '_blank';
       abrir.rel = 'noopener';
       abrir.textContent = 'Abrir WhatsApp';

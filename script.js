@@ -1,5 +1,5 @@
 /* ============================================================
-   NOVAHOST: comportamiento del sitio
+   ALTARIA: comportamiento del sitio
 
    Sin dependencias externas: los reveals usan IntersectionObserver
    y las animaciones viven en CSS. El teléfono de WhatsApp está en
@@ -14,10 +14,10 @@
      Contacto
      ============================================================ */
   const DEFAULT_WHATSAPP_MESSAGE =
-    'Hola, quiero cotizar la administración de mi propiedad en arriendo de corto plazo.';
+    'Hola ALTARIA, quiero cotizar la administración de mi propiedad en arriendo de corto plazo.';
 
-  if (typeof novahostWhatsAppLink === 'function') {
-    const waHref = novahostWhatsAppLink(DEFAULT_WHATSAPP_MESSAGE);
+  if (typeof altariaWhatsAppLink === 'function') {
+    const waHref = altariaWhatsAppLink(DEFAULT_WHATSAPP_MESSAGE);
     document.querySelectorAll('[data-cta]').forEach(el => { el.href = waHref; });
   }
 

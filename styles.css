@@ -1,10 +1,10 @@
 /* ============================================================
-   NOVAHOST: sistema visual "Liquidación"
+   ALTARIA: sistema visual "Liquidación"
 
    Base clara, secciones de contraste en azul noche (derivado del
    azul de marca, no negro). Tipografía Archivo en dos anchos: los
    títulos van ensanchados y grandes, el texto corrido en ancho
-   normal. Geist Mono queda solo para el logo NH.
+   normal. El logo ALTARIA usa trazados SVG y la mono queda para cifras.
    El elemento firma es la liquidación mensual del hero: el
    documento que el dueño recibe cada mes.
    ============================================================ */
@@ -17,13 +17,13 @@
   --paper:#F4F5F7;
   --paper-2:#FFFFFF;
   --paper-3:#E6E8EE;
-  --ink:#0C0F14;
-  --ink-2:#141922;
-  --ink-3:#1D242F;
+  --ink:#0B2139;
+  --ink-2:#14344E;
+  --ink-3:#1E4968;
   /* azul noche: las secciones de contraste */
-  --night:#0B1550;
-  --night-2:#121E63;
-  --night-3:#1B2977;
+  --night:#0B2139;
+  --night-2:#14344E;
+  --night-3:#1E4968;
 
   /* tokens de superficie (los sobreescriben .section--ink y .panel) */
   --surface:var(--paper);
@@ -37,21 +37,21 @@
   --line-strong:#C1C5D0;
 
   /* acción */
-  --accent:#2440F5;
-  --accent-hover:#1A31C9;
+  --accent:#087A52;
+  --accent-hover:#066443;
   --accent-ink:#FFFFFF;
-  --accent-text:#2136D6;
-  --accent-soft:#E9EBFE;
-  --accent-ring:rgba(36,64,245,.16);
+  --accent-text:#087A52;
+  --accent-soft:#E3F5EC;
+  --accent-ring:rgba(14,170,114,.18);
 
   /* estado */
-  --ok:#0A7D4C;
-  --ok-fill:#10B981;
+  --ok:#087A52;
+  --ok-fill:#0EAA72;
   --ok-soft:#E4F6EE;
   --danger:#B23A10;
   --danger-soft:#FBEAE2;
 
-  /* tipografía: Archivo en dos anchos; la mono solo para el logo */
+  /* tipografía: Archivo en dos anchos; mono para cifras del reporte */
   --font-sans:'Archivo',-apple-system,'Segoe UI',sans-serif;
   --font-display:'Archivo',-apple-system,'Segoe UI',sans-serif;
   --display-stretch:116%;
@@ -92,8 +92,8 @@
   --line-c:rgba(241,242,245,.13);
   --line-2:rgba(241,242,245,.07);
   --line-strong:rgba(241,242,245,.28);
-  --accent-text:#A9B6FF;
-  --accent-soft:rgba(169,182,255,.13);
+  --accent-text:#75E1B5;
+  --accent-soft:rgba(117,225,181,.13);
   --ok:#5EE9A4;
   --ok-soft:rgba(94,233,164,.14);
   color:var(--fg);
@@ -155,7 +155,7 @@ body{
   border-radius:3px;
 }
 .section--ink :focus-visible,
-.panel :focus-visible{ outline-color:#8FA0FF; }
+.panel :focus-visible{ outline-color:#75E1B5; }
 
 /* ============================================================
    3. Tipografía
@@ -327,24 +327,13 @@ h1,h2,h3,h4{
   flex-shrink:0;
   margin-right:auto;
 }
-.brand-mark{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:26px; height:26px;
-  border-radius:var(--radius-xs);
-  background:var(--accent);
-  color:#fff;
-  font-family:var(--font-mono);
-  font-weight:500;
-  font-size:.68rem;
-  letter-spacing:-.02em;
+.brand-logo{
+  width:156px;
+  height:auto;
+  display:block;
 }
-.brand-word{
-  font-family:var(--font-mono);
-  font-size:.74rem;
-  letter-spacing:.16em;
-  color:var(--fg);
+@media (min-width:1120px){
+  .site-header .brand-logo{ width:176px; }
 }
 
 .main-nav{
@@ -374,6 +363,9 @@ h1,h2,h3,h4{
   transition:color .18s var(--ease);
 }
 .header-secondary:hover{ color:var(--accent-text); }
+@media (min-width:900px) and (max-width:1119px){
+  .header-secondary{ display:none; }
+}
 
 .btn-nav{ padding:.68rem 1.05rem; font-size:.92rem; }
 
@@ -564,7 +556,7 @@ body.nav-open{ overflow:hidden; }
 .hero-title .line:nth-child(2) > span{ transition-delay:.12s; }
 .hero-title .line:nth-child(3) > span{ transition-delay:.20s; }
 .hero-title .line:nth-child(4) > span{ transition-delay:.28s; }
-/* La segunda frase es la de Novahost: va en el azul de la marca */
+/* La segunda frase de ALTARIA usa el verde de acción de la marca */
 .hero-title em{
   font-style:normal;
   color:var(--accent);
@@ -682,7 +674,7 @@ body.nav-open{ overflow:hidden; }
   background:var(--ok-fill);
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);
 }
-.cal-cell.is-today{ box-shadow:inset 0 0 0 1.5px #8FA0FF; }
+.cal-cell.is-today{ box-shadow:inset 0 0 0 1.5px #75E1B5; }
 
 .panel-legend{
   margin-top:1rem;
@@ -1342,7 +1334,7 @@ body.nav-open{ overflow:hidden; }
    ============================================================ */
 .site-footer{
   background:var(--ink);
-  --accent-text:#A9B6FF;
+  --accent-text:#75E1B5;
   color:#F1F2F5;
   --fg:#F1F2F5;
   --fg-soft:rgba(241,242,245,.74);
@@ -1358,7 +1350,7 @@ body.nav-open{ overflow:hidden; }
 @media (min-width:760px){
   .footer-inner{ grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(0,1fr)); }
 }
-.site-footer .brand-word{ color:var(--fg); }
+.site-footer .brand-logo{ width:220px; }
 .footer-brand{ display:flex; flex-wrap:wrap; align-items:center; align-content:flex-start; gap:.55rem; max-width:360px; }
 .footer-brand p{
   flex-basis:100%;
@@ -1558,7 +1550,7 @@ body.nav-open{ overflow:hidden; }
 .proceso-list li.is-in::before,
 html:not(.js) .proceso-list li::before{ transform:scaleX(1); }
 
-/* Servicios: al pasar el mouse, una línea azul recorre la fila */
+/* Servicios: al pasar el mouse, una línea verde recorre la fila */
 .servicio-card{ position:relative; }
 .servicio-card::after{
   content:'';
@@ -1604,7 +1596,7 @@ html:not(.js) .proceso-list li::before{ transform:scaleX(1); }
   align-items:center;
   gap:clamp(2rem,4vw,3.2rem);
 }
-/* separador: el cuadro del logo en miniatura */
+/* separador discreto entre comunas */
 .marquee-group span::after{
   content:'';
   width:.32em; height:.32em;

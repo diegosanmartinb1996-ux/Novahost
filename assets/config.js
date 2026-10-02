@@ -1,12 +1,12 @@
 /* ============================================================
-   NOVAHOST: configuración compartida de WhatsApp
+   ALTARIA: configuración compartida de WhatsApp
    Usado por script.js (CTA genérico) y booking.js (reservas).
    Editar el teléfono acá cuando el cliente confirme el número real.
    ============================================================ */
-const NOVAHOST_WHATSAPP = {
-  phone: '56900000000' // TODO: reemplazar por el número real de Novahost
+const ALTARIA_WHATSAPP = {
+  phone: '56900000000' // TODO: reemplazar por el número real de ALTARIA
 };
 
-function novahostWhatsAppLink(message) {
-  return `https://wa.me/${NOVAHOST_WHATSAPP.phone}?text=${encodeURIComponent(message)}`;
+function altariaWhatsAppLink(message) {
+  return `https://wa.me/${ALTARIA_WHATSAPP.phone}?text=${encodeURIComponent(message)}`;
 }

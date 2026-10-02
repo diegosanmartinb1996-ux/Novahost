@@ -1,5 +1,5 @@
 /* ============================================================
-   NOVAHOST | Catálogo de propiedades
+   ALTARIA | Catálogo de propiedades
    ============================================================
 
    Este archivo es la ÚNICA fuente de datos para el catálogo
@@ -37,7 +37,7 @@
    IMPORTANTE
    ----------
    Las 6 propiedades de abajo son EJEMPLOS de estructura, no propiedades
-   reales de Novahost. Reemplaza nombre, descripción, precio y fotos por
+   reales de ALTARIA. Reemplaza nombre, descripción, precio y fotos por
    la información real antes de publicar el sitio.
    ============================================================ */
 
