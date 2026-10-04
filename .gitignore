@@ -1,0 +1,13 @@
+# Cloudflare publica automaticamente lo que llega a GitHub.
+# Por eso se excluye todo y solo se versionan los archivos del sitio web.
+# Si agregas un archivo del sitio con otra extension en la raiz, sumalo aqui.
+
+/*
+
+!/.gitignore
+!/*.html
+!/*.css
+!/*.js
+!/robots.txt
+!/sitemap.xml
+!/assets/

@@ -16,9 +16,11 @@
   const DEFAULT_WHATSAPP_MESSAGE =
     'Hola ALTARIA, quiero cotizar la administración de mi propiedad en arriendo de corto plazo.';
 
+  // Un enlace puede traer su propio mensaje con data-cta-message
   if (typeof altariaWhatsAppLink === 'function') {
-    const waHref = altariaWhatsAppLink(DEFAULT_WHATSAPP_MESSAGE);
-    document.querySelectorAll('[data-cta]').forEach(el => { el.href = waHref; });
+    document.querySelectorAll('[data-cta]').forEach(el => {
+      el.href = altariaWhatsAppLink(el.dataset.ctaMessage || DEFAULT_WHATSAPP_MESSAGE);
+    });
   }
 
   /* ============================================================

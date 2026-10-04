@@ -369,6 +369,53 @@ h1,h2,h3,h4{
 
 .btn-nav{ padding:.68rem 1.05rem; font-size:.92rem; }
 
+/* Acceso al portal de propietarios: no es una sección de la página,
+   así que va como acceso aparte, con ícono, antes del botón principal. */
+.header-portal{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.45rem;
+  height:38px;
+  padding:0 .9rem 0 .75rem;
+  border:1px solid var(--line-strong);
+  border-radius:100px;
+  font-size:.88rem;
+  font-weight:500;
+  color:var(--fg-soft);
+  transition:color .18s var(--ease), border-color .18s var(--ease), background-color .18s var(--ease);
+}
+.header-portal svg{ width:17px; height:17px; flex-shrink:0; }
+.header-portal:hover{ color:var(--accent-text); border-color:var(--accent); }
+.header-portal[aria-current="page"]{
+  color:var(--accent-text);
+  border-color:var(--accent);
+  background:var(--accent-soft);
+}
+.mobile-nav > a[aria-current="page"]{ color:var(--accent-text); }
+
+/* Con la barra a medio ancho no cabe el texto: queda solo el ícono
+   (el texto sigue disponible para lectores de pantalla y como tooltip). */
+@media (min-width:900px) and (max-width:1179px){
+  .header-portal{ width:38px; padding:0; }
+  .header-portal-label{
+    position:absolute;
+    width:1px; height:1px;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0 0 0 0);
+    white-space:nowrap;
+  }
+}
+/* Justo sobre el corte del menú móvil la portada no alcanza: se compacta la barra */
+@media (min-width:900px) and (max-width:1023px){
+  .header-inner{ gap:.9rem; }
+  .main-nav{ gap:1.1rem; }
+  .main-nav a{ font-size:.9rem; }
+  .header-actions{ gap:.8rem; }
+  .site-header .brand-logo{ width:136px; }
+}
+
 /* Botón hamburguesa */
 .nav-toggle{
   display:inline-flex;
@@ -1158,6 +1205,96 @@ body.nav-open{ overflow:hidden; }
   transition:color .18s var(--ease);
 }
 .back-link:hover{ color:var(--accent-text); }
+
+/* ============================================================
+   17b. Portal propietarios (página en preparación)
+
+   En celular la vista previa va entre la presentación y el detalle;
+   en escritorio queda a la derecha, a la altura de ambos.
+   ============================================================ */
+.portal-grid{
+  display:grid;
+  gap:clamp(2.5rem,5vw,3.25rem);
+  grid-template-areas:"intro" "visual" "details";
+}
+.portal-intro{ grid-area:intro; }
+.portal-visual{ grid-area:visual; }
+.portal-details{ grid-area:details; }
+.portal .section-copy{ margin-bottom:0; }
+
+@media (min-width:600px) and (max-width:979px){
+  .portal-visual{ max-width:520px; }
+}
+@media (min-width:980px){
+  .portal-grid{
+    grid-template-columns:minmax(0,1fr) minmax(0,480px);
+    grid-template-areas:"intro visual" "details visual";
+    grid-template-rows:auto 1fr;
+    column-gap:clamp(3rem,6vw,5rem);
+  }
+  .portal-visual{ align-self:start; margin-top:.5rem; }
+}
+
+.portal-status{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  margin-bottom:1.4rem;
+  padding:.32rem .8rem;
+  border:1px solid var(--line-strong);
+  border-radius:100px;
+  font-size:.82rem;
+  font-weight:500;
+  color:var(--fg-soft);
+}
+.portal-status i{
+  width:7px; height:7px;
+  border-radius:50%;
+  background:var(--ok-fill);
+  box-shadow:0 0 0 3px var(--accent-ring);
+}
+
+.portal-features{ border-top:2px solid var(--ink); }
+.portal-features li{
+  display:grid;
+  gap:.2rem;
+  padding:1.15rem 0;
+  border-bottom:1px solid var(--line-c);
+}
+@media (min-width:560px){
+  .portal-features li{ grid-template-columns:11rem minmax(0,1fr); align-items:baseline; gap:1rem; }
+}
+.portal-features strong{
+  font-family:var(--font-display);
+  font-stretch:var(--display-stretch);
+  font-size:1.15rem;
+  font-weight:700;
+  letter-spacing:-.025em;
+  color:var(--fg);
+}
+.portal-features span{ font-size:1.02rem; color:var(--fg-soft); }
+
+.portal-note{
+  margin-top:2rem;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:.55rem;
+  background:var(--surface-2);
+  border:1px solid var(--line-c);
+  border-radius:var(--radius);
+  padding:clamp(1.25rem,2.8vw,1.6rem);
+}
+.portal-note-title{ font-weight:600; letter-spacing:-.015em; color:var(--fg); }
+.portal-note p:not(.portal-note-title){ font-size:.97rem; color:var(--fg-soft); max-width:52ch; }
+.portal-note .btn{ margin-top:.6rem; }
+
+.portal-prospect{ margin-top:1.4rem; font-size:.92rem; color:var(--fg-faint); }
+.portal-prospect a{
+  color:var(--accent-text);
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
 
 /* ============================================================
    18. Filtros y formularios
