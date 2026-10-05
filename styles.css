@@ -876,11 +876,6 @@ body.nav-open{ overflow:hidden; }
   letter-spacing:-.025em;
 }
 .servicio-card p{ color:var(--fg-soft); font-size:1rem; max-width:44ch; }
-/* Quinta tarjeta de la operación: ocupa la fila completa en vez de quedar sola */
-@media (min-width:720px){
-  .servicio-card--wide{ grid-column:1 / -1; }
-  .servicio-card--wide p{ max-width:64ch; }
-}
 
 /* Cada etiqueta lleva su punto delante. La lista se corre a la izquierda
    y se recorta ese margen: así el punto que abre cada línea queda oculto
