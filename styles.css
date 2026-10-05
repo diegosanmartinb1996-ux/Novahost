@@ -876,17 +876,33 @@ body.nav-open{ overflow:hidden; }
   letter-spacing:-.025em;
 }
 .servicio-card p{ color:var(--fg-soft); font-size:1rem; max-width:44ch; }
+/* Quinta tarjeta de la operación: ocupa la fila completa en vez de quedar sola */
+@media (min-width:720px){
+  .servicio-card--wide{ grid-column:1 / -1; }
+  .servicio-card--wide p{ max-width:64ch; }
+}
 
+/* Cada etiqueta lleva su punto delante. La lista se corre a la izquierda
+   y se recorta ese margen: así el punto que abre cada línea queda oculto
+   y, si la lista salta de línea, ninguna empieza con un punto suelto. */
 .platform-chips{
   margin-top:.35rem;
+  margin-left:-1.5rem;
+  clip-path:inset(0 0 0 1.5rem);
   display:flex;
   flex-wrap:wrap;
-  gap:.35rem .5rem;
+  row-gap:.35rem;
   font-size:.95rem;
   font-weight:600;
   color:var(--fg);
 }
-.platform-chips li + li::before{ content:'·'; margin-right:.5rem; color:var(--fg-faint); }
+.platform-chips li::before{
+  content:'·';
+  display:inline-block;
+  width:1.5rem;
+  text-align:center;
+  color:var(--fg-faint);
+}
 
 /* ============================================================
    11. Proceso (sección oscura)
