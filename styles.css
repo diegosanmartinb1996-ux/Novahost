@@ -171,7 +171,6 @@ body{
 /* Rotulos de seccion y de ficha: sans, sin versalitas ni tracking */
 .sector-name,
 .footer-heading,
-.folio-label,
 .property-card-comuna,
 .property-detail-comuna{
   font-family:var(--font-sans);
@@ -1191,6 +1190,7 @@ body.nav-open{ overflow:hidden; }
   color:var(--fg-faint);
 }
 .property-detail-desc{ color:var(--fg-soft); }
+.property-detail-note{ margin-top:-.35rem; font-size:.86rem; color:var(--fg-faint); }
 .property-detail-amenities-title{
   font-size:.95rem;
   font-weight:600;
@@ -1308,7 +1308,7 @@ body.nav-open{ overflow:hidden; }
 }
 
 /* ============================================================
-   18. Filtros y formularios
+   18. Filtro del catálogo
    ============================================================ */
 .filter-bar{
   display:flex;
@@ -1317,20 +1317,13 @@ body.nav-open{ overflow:hidden; }
   flex-wrap:wrap;
   padding-bottom:.5rem;
 }
-.filter-bar label,
-.form-group label{
+.filter-bar label{
   font-size:.86rem;
   font-weight:500;
   letter-spacing:-.005em;
   color:var(--fg-soft);
 }
-
-.form-group{ display:flex; flex-direction:column; gap:.4rem; }
-
-.filter-bar select,
-.form-group input,
-.form-group select,
-.form-group textarea{
+.filter-bar select{
   font-family:var(--font-sans);
   font-size:.95rem;
   letter-spacing:-.01em;
@@ -1339,125 +1332,19 @@ body.nav-open{ overflow:hidden; }
   border:1px solid var(--line-c);
   border-radius:var(--radius-sm);
   padding:.72rem .85rem;
-  width:100%;
+  width:auto;
+  min-width:220px;
   min-height:46px;
   transition:border-color .18s var(--ease), box-shadow .18s var(--ease);
 }
-.filter-bar select{ width:auto; min-width:220px; }
-.form-group textarea{ min-height:110px; resize:vertical; }
-
-.filter-bar select:hover,
-.form-group input:hover,
-.form-group select:hover,
-.form-group textarea:hover{ border-color:var(--line-strong); }
-
-.filter-bar select:focus-visible,
-.form-group input:focus-visible,
-.form-group select:focus-visible,
-.form-group textarea:focus-visible{
+.filter-bar select:hover{ border-color:var(--line-strong); }
+.filter-bar select:focus-visible{
   outline:none;
   border-color:var(--accent);
   box-shadow:0 0 0 3px var(--accent-ring);
 }
 
-.form-row{ display:grid; gap:1rem; }
-@media (min-width:560px){
-  .form-row{ grid-template-columns:repeat(2,1fr); }
-}
-
-.booking-layout{ display:grid; gap:clamp(1.75rem,3.5vw,2.75rem); align-items:start; }
-@media (min-width:980px){
-  .booking-layout{ grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); }
-}
-.booking-form{
-  display:flex;
-  flex-direction:column;
-  gap:1rem;
-  background:var(--surface-2);
-  border:1px solid var(--line-c);
-  border-radius:var(--radius);
-  padding:clamp(1.3rem,3vw,1.85rem);
-}
-.booking-form .btn{ margin-top:.4rem; }
-
-.form-alert{
-  display:none;
-  font-size:.9rem;
-  color:var(--danger);
-  background:var(--danger-soft);
-  border:1px solid rgba(178,58,16,.25);
-  border-radius:var(--radius-sm);
-  padding:.75rem .9rem;
-}
-.form-alert.is-visible{ display:block; }
-.form-submit-note{ font-size:.82rem; color:var(--fg-faint); }
-
 .filter-empty{ margin-top:2rem; color:var(--fg-faint); }
-
-/* ============================================================
-   19. Folio (resumen de la solicitud de reserva)
-   ============================================================ */
-.booking-folio-wrap{ position:sticky; top:calc(var(--header-h) + 1.5rem); }
-.folio-caption{
-  font-size:.86rem;
-  letter-spacing:-.005em;
-  color:var(--fg-faint);
-  margin-bottom:.75rem;
-}
-.folio{
-  background:var(--surface-2);
-  border:1px solid var(--line-c);
-  border-radius:var(--radius);
-  padding:clamp(1.2rem,2.6vw,1.5rem);
-}
-.folio-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:1rem;
-  margin-bottom:.9rem;
-}
-.folio-label{ font-size:.83rem; color:var(--fg); }
-.folio-label-dim{ color:var(--fg-faint); }
-.folio-rule{ height:1px; background:var(--line-c); }
-.folio-fields{ display:grid; padding-block:.35rem; }
-.folio-fields li{
-  display:flex;
-  align-items:baseline;
-  justify-content:space-between;
-  gap:1rem;
-  padding:.58rem 0;
-  font-size:.9rem;
-  color:var(--fg-faint);
-  border-bottom:1px solid var(--line-2);
-}
-.folio-fields li:last-child{ border-bottom:none; }
-.folio-value{
-  font-weight:600;
-  font-size:.92rem;
-  letter-spacing:0;
-  color:var(--fg);
-  text-align:right;
-  font-variant-numeric:tabular-nums;
-}
-.folio-seal{
-  margin-top:.9rem;
-  display:flex;
-  align-items:center;
-  gap:.55rem;
-}
-.seal-ring{
-  width:8px; height:8px;
-  border-radius:50%;
-  background:var(--ok-soft);
-  box-shadow:inset 0 0 0 2px var(--ok);
-  flex-shrink:0;
-}
-.seal-text{
-  font-size:.85rem;
-  font-weight:600;
-  color:var(--ok);
-}
 
 /* ============================================================
    20. CTA final
@@ -1555,8 +1442,7 @@ body.nav-open{ overflow:hidden; }
    Los navegadores no imprimen fondos, así que las secciones
    oscuras salían en texto claro sobre papel blanco. Aquí se
    devuelven a tinta negra y se oculta todo lo que no es
-   contenido. El folio de la reserva es lo único que alguien
-   va a imprimir de verdad, así que conserva su marco.
+   contenido.
    ============================================================ */
 @media print{
   .site-header,
@@ -1588,46 +1474,10 @@ body.nav-open{ overflow:hidden; }
   .section{ padding-block:1.2rem; }
   a{ color:#000; text-decoration:underline; }
 
-  .booking-folio-wrap{ position:static; }
-  .booking-folio{ border:1px solid #999; page-break-inside:avoid; }
-
   .servicio-card,
   .property-card,
   .proceso-list li,
   .pillar{ page-break-inside:avoid; }
-}
-
-/* Respaldo del formulario cuando el navegador bloquea WhatsApp */
-.booking-fallback{
-  margin-top:1.25rem;
-  padding:1.1rem;
-  border:1px solid var(--line-strong);
-  border-radius:var(--radius-sm);
-  background:var(--surface-2);
-  display:flex;
-  flex-direction:column;
-  gap:.7rem;
-}
-.booking-fallback-title{ font-weight:600; letter-spacing:-.015em; }
-.booking-fallback p{ font-size:.92rem; color:var(--fg-soft); }
-.booking-fallback textarea{
-  width:100%;
-  font-family:var(--font-mono);
-  font-size:.82rem;
-  line-height:1.5;
-  padding:.7rem;
-  border:1px solid var(--line-c);
-  border-radius:var(--radius-xs);
-  background:var(--surface);
-  color:var(--fg);
-  resize:vertical;
-}
-.booking-fallback-actions{ display:flex; flex-wrap:wrap; gap:.6rem; }
-
-/* Campo marcado como inválido tras enviar */
-[aria-invalid="true"]{
-  border-color:var(--danger) !important;
-  box-shadow:0 0 0 3px var(--danger-soft);
 }
 
 /* Encabezado para lectores de pantalla, sin ocupar espacio */

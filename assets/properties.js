@@ -3,8 +3,8 @@
    ============================================================
 
    Este archivo es la ÚNICA fuente de datos para el catálogo
-   (propiedades.html), la ficha de cada propiedad (propiedad.html)
-   y el formulario de reserva (reservar.html). No requiere servidor:
+   (propiedades.html) y la ficha de cada propiedad (propiedad.html).
+   No requiere servidor:
    es un array de JavaScript normal, así que funciona incluso abriendo
    los archivos .html con doble clic.
 
@@ -22,17 +22,18 @@
       Mientras "fotos" esté vacío (fotos: []), la propiedad se muestra
       con el mismo aviso "Fotografía pendiente" que ya se usa en el
       resto del sitio. Nunca se inventan fotos de stock.
-   5. fechasNoDisponibles: cada vez que confirmes una reserva a mano
-      (por WhatsApp), agrega el rango de fechas acá para que el
-      formulario de reserva avise si alguien más intenta pedir esas
-      mismas fechas. Formato: { inicio: "AAAA-MM-DD", fin: "AAAA-MM-DD" }.
+   5. airbnb: el enlace del anuncio en Airbnb, completo y con https://.
+      Las reservas se hacen solo en Airbnb, para que cada estadía quede
+      cubierta por su protección. El botón de la ficha lleva a ese
+      enlace. Mientras esté vacío (airbnb: ''), el botón abre WhatsApp
+      para consultar por la propiedad.
 
    SI UNA PROPIEDAD NO APARECE
    ---------------------------
    Le falta "id" o le falta "nombre". El sitio descarta en silencio las
    propiedades sin esos dos campos, en vez de dejar en blanco el catálogo
-   entero. Los campos "fotos", "amenities" y "fechasNoDisponibles" pueden
-   faltar sin romper nada: se asumen vacíos.
+   entero. Los campos "fotos", "amenities" y "airbnb" pueden faltar
+   sin romper nada: se asumen vacíos.
 
    IMPORTANTE
    ----------
@@ -54,7 +55,7 @@ const PROPERTIES = [
     fotos: [],
     amenities: ['Wifi', 'Cocina equipada', 'Aire acondicionado', 'Ascensor'],
     descripcion: 'Texto de ejemplo: acá va la descripción real de la propiedad (ambientes, vista, cercanía a metro/comercio, etc.). Reemplazar antes de publicar.',
-    fechasNoDisponibles: []
+    airbnb: ''
   },
   {
     id: 'depto-providencia-1',
@@ -68,9 +69,7 @@ const PROPERTIES = [
     fotos: [],
     amenities: ['Wifi', 'Cocina equipada', 'Gimnasio del edificio', 'Estacionamiento'],
     descripcion: 'Texto de ejemplo: acá va la descripción real de la propiedad. Reemplazar antes de publicar.',
-    fechasNoDisponibles: [
-      { inicio: '2026-08-10', fin: '2026-08-15' }
-    ]
+    airbnb: ''
   },
   {
     id: 'depto-las-condes-1',
@@ -84,7 +83,7 @@ const PROPERTIES = [
     fotos: [],
     amenities: ['Wifi', 'Piscina del edificio', 'Estacionamiento', 'Seguridad 24h'],
     descripcion: 'Texto de ejemplo: acá va la descripción real de la propiedad. Reemplazar antes de publicar.',
-    fechasNoDisponibles: []
+    airbnb: ''
   },
   {
     id: 'casa-vitacura-1',
@@ -98,7 +97,7 @@ const PROPERTIES = [
     fotos: [],
     amenities: ['Wifi', 'Jardín', 'Estacionamiento privado', 'Quincho'],
     descripcion: 'Texto de ejemplo: acá va la descripción real de la propiedad. Reemplazar antes de publicar.',
-    fechasNoDisponibles: []
+    airbnb: ''
   },
   {
     id: 'depto-nunoa-1',
@@ -112,7 +111,7 @@ const PROPERTIES = [
     fotos: [],
     amenities: ['Wifi', 'Cocina equipada', 'Balcón'],
     descripcion: 'Texto de ejemplo: acá va la descripción real de la propiedad. Reemplazar antes de publicar.',
-    fechasNoDisponibles: []
+    airbnb: ''
   },
   {
     id: 'depto-la-reina-1',
@@ -126,6 +125,6 @@ const PROPERTIES = [
     fotos: [],
     amenities: ['Wifi', 'Cocina equipada', 'Estacionamiento', 'Área verde'],
     descripcion: 'Texto de ejemplo: acá va la descripción real de la propiedad. Reemplazar antes de publicar.',
-    fechasNoDisponibles: []
+    airbnb: ''
   }
 ];
