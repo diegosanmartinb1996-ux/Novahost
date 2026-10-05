@@ -6,13 +6,15 @@
   /* properties.js se edita a mano. Una propiedad a la que le falte una
      clave no puede tumbar el catálogo y la ficha a la vez: las que no
      traen id ni nombre se descartan y al resto se le completan los campos
-     vacíos. El enlace de Airbnb solo se acepta si empieza con https://. */
+     vacíos. El enlace de Airbnb solo se acepta si empieza con https://
+     y el precio, si no es un número mayor que cero, queda sin publicar. */
   const PROPS = (Array.isArray(PROPERTIES) ? PROPERTIES : [])
     .filter(p => p && p.id && p.nombre)
     .map(p => ({
       ...p,
       fotos: Array.isArray(p.fotos) ? p.fotos : [],
       amenities: Array.isArray(p.amenities) ? p.amenities : [],
+      precioDesde: Number(p.precioDesde) > 0 ? Number(p.precioDesde) : null,
       airbnb: typeof p.airbnb === 'string' && /^https:\/\//.test(p.airbnb.trim()) ? p.airbnb.trim() : ''
     }));
 
@@ -50,8 +52,9 @@
             <span>${p.dormitorios} dorm.</span>
           </div>
           <div class="property-card-price">
-            <span class="price-label">Desde</span>
-            <span class="price-value">${formatPrice(p.precioDesde)}/noche</span>
+            ${p.precioDesde
+              ? `<span class="price-label">Desde</span><span class="price-value">${formatPrice(p.precioDesde)}/noche</span>`
+              : `<span class="price-label">Precio</span><span class="price-value">Según fechas</span>`}
           </div>
           <a class="property-card-link" href="propiedad.html?id=${p.id}">Ver propiedad</a>
         </div>
@@ -138,7 +141,9 @@
 
       setText('[data-property-nombre]', property.nombre);
       setText('[data-property-comuna]', property.comuna);
-      setText('[data-property-precio]', `${formatPrice(property.precioDesde)} / noche`);
+      setText('[data-property-precio]', property.precioDesde
+        ? `${formatPrice(property.precioDesde)} / noche`
+        : 'Según tus fechas, en Airbnb');
       setText('[data-property-desc]', property.descripcion);
 
       const chips = document.querySelector('[data-property-chips]');

@@ -10,121 +10,55 @@
 
    CÓMO AGREGAR UNA PROPIEDAD NUEVA
    ---------------------------------
-   1. Copia uno de los bloques { ... } de abajo y pégalo antes del
-      corchete final "];".
+   1. Copia un bloque { ... } de abajo y pégalo antes del corchete
+      final "];". Separa cada bloque del siguiente con una coma.
    2. Cambia "id" por un texto corto y único, sin espacios ni tildes
       (ej: "depto-nunoa-2"). Ese id es el que se usa en la URL:
       propiedad.html?id=depto-nunoa-2
-   3. Completa nombre, comuna, tipo, capacidad, dormitorios, banos,
-      precioDesde (en pesos chilenos, solo el número) y descripcion.
-   4. Fotos reales: agrega las rutas de las imágenes dentro de
+   3. Completa nombre, comuna, tipo, capacidad, dormitorios, banos y
+      descripcion.
+   4. precioDesde es opcional (en pesos chilenos, solo el número). Como
+      en Airbnb el precio cambia según las fechas, conviene dejarlo en
+      null: la web muestra "Según fechas" en vez de un precio que puede
+      quedar desactualizado.
+   5. Fotos reales: agrega las rutas de las imágenes dentro de
       "fotos": ["assets/gallery/nombre-1.jpg", "assets/gallery/nombre-2.jpg"].
+      La primera es la portada de la tarjeta y de la ficha.
       Mientras "fotos" esté vacío (fotos: []), la propiedad se muestra
       con el mismo aviso "Fotografía pendiente" que ya se usa en el
       resto del sitio. Nunca se inventan fotos de stock.
-   5. airbnb: el enlace del anuncio en Airbnb, completo y con https://.
-      Las reservas se hacen solo en Airbnb, para que cada estadía quede
-      cubierta por su protección. El botón de la ficha lleva a ese
-      enlace. Mientras esté vacío (airbnb: ''), el botón abre WhatsApp
-      para consultar por la propiedad.
+   6. airbnb: el enlace del anuncio en Airbnb, completo y con https://,
+      sin lo que viene después del "?" al compartirlo. Las reservas se
+      hacen solo en Airbnb, para que cada estadía quede cubierta por su
+      protección. El botón de la ficha lleva a ese enlace. Mientras esté
+      vacío (airbnb: ''), el botón abre WhatsApp para consultar.
 
    SI UNA PROPIEDAD NO APARECE
    ---------------------------
    Le falta "id" o le falta "nombre". El sitio descarta en silencio las
    propiedades sin esos dos campos, en vez de dejar en blanco el catálogo
-   entero. Los campos "fotos", "amenities" y "airbnb" pueden faltar
-   sin romper nada: se asumen vacíos.
+   entero. Los campos "precioDesde", "fotos", "amenities" y "airbnb"
+   pueden faltar sin romper nada: se asumen vacíos.
 
    IMPORTANTE
    ----------
-   Las 6 propiedades de abajo son EJEMPLOS de estructura, no propiedades
-   reales de ALTARIA. Reemplaza nombre, descripción, precio y fotos por
-   la información real antes de publicar el sitio.
+   Todo lo que está en esta lista se publica en la web. Agrega solo
+   propiedades reales que administre ALTARIA.
    ============================================================ */
 
 const PROPERTIES = [
   {
-    id: 'depto-santiago-centro-1',
-    nombre: 'Departamento céntrico (ejemplo)',
-    comuna: 'Santiago Centro',
-    tipo: 'Departamento',
-    capacidad: 4,
-    dormitorios: 2,
-    banos: 1,
-    precioDesde: 45000,
-    fotos: [],
-    amenities: ['Wifi', 'Cocina equipada', 'Aire acondicionado', 'Ascensor'],
-    descripcion: 'Texto de ejemplo: acá va la descripción real de la propiedad (ambientes, vista, cercanía a metro/comercio, etc.). Reemplazar antes de publicar.',
-    airbnb: ''
-  },
-  {
-    id: 'depto-providencia-1',
-    nombre: 'Departamento con vista (ejemplo)',
-    comuna: 'Providencia',
-    tipo: 'Departamento',
-    capacidad: 3,
-    dormitorios: 1,
-    banos: 1,
-    precioDesde: 52000,
-    fotos: [],
-    amenities: ['Wifi', 'Cocina equipada', 'Gimnasio del edificio', 'Estacionamiento'],
-    descripcion: 'Texto de ejemplo: acá va la descripción real de la propiedad. Reemplazar antes de publicar.',
-    airbnb: ''
-  },
-  {
-    id: 'depto-las-condes-1',
-    nombre: 'Departamento familiar (ejemplo)',
+    id: 'depto-las-condes-el-golf-1',
+    nombre: 'A pasos de Costanera Center, con estacionamiento',
     comuna: 'Las Condes',
     tipo: 'Departamento',
-    capacidad: 5,
-    dormitorios: 2,
-    banos: 2,
-    precioDesde: 68000,
-    fotos: [],
-    amenities: ['Wifi', 'Piscina del edificio', 'Estacionamiento', 'Seguridad 24h'],
-    descripcion: 'Texto de ejemplo: acá va la descripción real de la propiedad. Reemplazar antes de publicar.',
-    airbnb: ''
-  },
-  {
-    id: 'casa-vitacura-1',
-    nombre: 'Casa con jardín (ejemplo)',
-    comuna: 'Vitacura',
-    tipo: 'Casa',
-    capacidad: 8,
-    dormitorios: 4,
-    banos: 3,
-    precioDesde: 130000,
-    fotos: [],
-    amenities: ['Wifi', 'Jardín', 'Estacionamiento privado', 'Quincho'],
-    descripcion: 'Texto de ejemplo: acá va la descripción real de la propiedad. Reemplazar antes de publicar.',
-    airbnb: ''
-  },
-  {
-    id: 'depto-nunoa-1',
-    nombre: 'Estudio para dos (ejemplo)',
-    comuna: 'Ñuñoa',
-    tipo: 'Departamento',
-    capacidad: 2,
-    dormitorios: 1,
-    banos: 1,
-    precioDesde: 38000,
-    fotos: [],
-    amenities: ['Wifi', 'Cocina equipada', 'Balcón'],
-    descripcion: 'Texto de ejemplo: acá va la descripción real de la propiedad. Reemplazar antes de publicar.',
-    airbnb: ''
-  },
-  {
-    id: 'depto-la-reina-1',
-    nombre: 'Departamento tranquilo (ejemplo)',
-    comuna: 'La Reina',
-    tipo: 'Departamento',
     capacidad: 4,
     dormitorios: 2,
     banos: 2,
-    precioDesde: 55000,
-    fotos: [],
-    amenities: ['Wifi', 'Cocina equipada', 'Estacionamiento', 'Área verde'],
-    descripcion: 'Texto de ejemplo: acá va la descripción real de la propiedad. Reemplazar antes de publicar.',
-    airbnb: ''
+    precioDesde: null,
+    fotos: ['assets/gallery/las-condes-el-golf-1.jpg'],
+    amenities: ['Wifi', 'Cocina equipada', 'Estacionamiento', 'Llegada autónoma', 'Smart TV', 'Zona de trabajo', 'Conserjería 24/7', 'Se aceptan mascotas'],
+    descripcion: 'Departamento en El Golf, frente al Mercado Urbano Tobalaba y a pasos del metro Tobalaba (líneas 1 y 4) y del Costanera Center. Tiene un dormitorio con cama doble, otro con camarote y dos baños. Incluye estacionamiento subterráneo, cocina equipada, wifi y llegada autónoma las 24 horas, en un edificio con conserjería.',
+    airbnb: 'https://www.airbnb.cl/rooms/1386484554472875702'
   }
 ];
