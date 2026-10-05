@@ -577,7 +577,7 @@ body.nav-open{ overflow:hidden; }
   .hero-visual .panel-shell{
     position:absolute;
     left:-2rem;
-    bottom:-2.5rem;
+    bottom:-3.75rem;
     width:290px;
     margin:0;
   }
