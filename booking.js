@@ -62,6 +62,99 @@
     `;
   }
 
+  /* Galería de la ficha: foto grande con flechas y una tira de
+     miniaturas. Cada foto puede tener su miniatura con el sufijo -mini
+     (foto-01.jpg → foto-01-mini.jpg); si no existe, se usa la foto
+     completa. */
+  const FLECHA = (trazo) =>
+    `<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${trazo}"/></svg>`;
+
+  function miniatura(src) {
+    return src.replace(/(\.[a-z0-9]+)$/i, '-mini$1');
+  }
+
+  function montarGaleria(photoEl, property) {
+    const fotos = property.fotos;
+    const total = fotos.length;
+    const img = photoEl.querySelector('img');
+    const tira = document.querySelector('[data-property-thumbs]');
+    const suave = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let actual = 0;
+
+    photoEl.classList.add('is-gallery');
+    img.loading = 'eager';
+
+    const boton = (clase, etiqueta, trazo) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'property-photo-nav ' + clase;
+      b.setAttribute('aria-label', etiqueta);
+      b.innerHTML = FLECHA(trazo);
+      return b;
+    };
+    const anterior = boton('is-prev', 'Foto anterior', 'M12.5 4.5 7 10l5.5 5.5');
+    const siguiente = boton('is-next', 'Foto siguiente', 'M7.5 4.5 13 10l-5.5 5.5');
+    const contador = document.createElement('span');
+    contador.className = 'property-photo-count';
+    contador.setAttribute('aria-live', 'polite');
+    photoEl.append(anterior, siguiente, contador);
+
+    const miniaturas = fotos.map((src, i) => {
+      const li = document.createElement('li');
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'property-thumb';
+      b.setAttribute('aria-label', `Ver foto ${i + 1} de ${total}`);
+      const m = document.createElement('img');
+      m.alt = '';
+      m.loading = 'lazy';
+      m.decoding = 'async';
+      m.addEventListener('error', () => { m.src = src; }, { once: true });
+      m.src = miniatura(src);
+      b.appendChild(m);
+      b.addEventListener('click', () => mostrar(i));
+      li.appendChild(b);
+      return li;
+    });
+    if (tira) {
+      tira.append(...miniaturas);
+      tira.hidden = false;
+    }
+
+    function mostrar(i) {
+      actual = (i + total) % total;
+      img.src = fotos[actual];
+      img.alt = `${property.nombre}, foto ${actual + 1} de ${total}`;
+      contador.textContent = `${actual + 1} / ${total}`;
+      miniaturas.forEach((li, j) => li.firstChild.setAttribute('aria-current', String(j === actual)));
+      if (tira) {
+        const li = miniaturas[actual];
+        tira.scrollTo({ left: li.offsetLeft - (tira.clientWidth - li.offsetWidth) / 2, behavior: suave ? 'smooth' : 'auto' });
+      }
+      // Precarga la siguiente para que el cambio sea inmediato
+      new Image().src = fotos[(actual + 1) % total];
+    }
+
+    anterior.addEventListener('click', () => mostrar(actual - 1));
+    siguiente.addEventListener('click', () => mostrar(actual + 1));
+
+    // Flechas del teclado y deslizamiento con el dedo
+    photoEl.parentElement.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); mostrar(actual - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); mostrar(actual + 1); }
+    });
+    let inicioX = null;
+    photoEl.addEventListener('touchstart', (e) => { inicioX = e.touches[0].clientX; }, { passive: true });
+    photoEl.addEventListener('touchend', (e) => {
+      if (inicioX === null) return;
+      const dx = e.changedTouches[0].clientX - inicioX;
+      inicioX = null;
+      if (Math.abs(dx) > 40) mostrar(actual + (dx < 0 ? 1 : -1));
+    });
+
+    mostrar(0);
+  }
+
   /* ============================================================
      Catálogo (propiedades.html)
      ============================================================ */
@@ -137,6 +230,7 @@
       if (photoEl) {
         photoEl.classList.toggle('is-empty', !property.fotos.length);
         photoEl.innerHTML = propertyPhotoMarkup(property);
+        if (property.fotos.length > 1) montarGaleria(photoEl, property);
       }
 
       setText('[data-property-nombre]', property.nombre);

@@ -1165,6 +1165,77 @@ body.nav-open{ overflow:hidden; }
   aspect-ratio:4/3;
   border:1px solid var(--line-c);
 }
+
+/* Galería: la foto grande se muestra completa (hay fotos verticales y
+   panorámicas); las miniaturas van en una tira que se desliza. */
+.property-media{ display:flex; flex-direction:column; gap:.4rem; min-width:0; }
+.property-photo-main.is-gallery img{ object-fit:contain; }
+
+.property-photo-nav{
+  position:absolute;
+  top:50%;
+  z-index:1;
+  width:2.6rem;
+  height:2.6rem;
+  margin-top:-1.3rem;
+  display:grid;
+  place-items:center;
+  padding:0;
+  border:1px solid var(--line-c);
+  border-radius:50%;
+  background:rgba(255,255,255,.92);
+  color:var(--ink);
+  cursor:pointer;
+  box-shadow:0 4px 14px -6px rgba(11,33,57,.35);
+  transition:background-color .18s var(--ease), transform .18s var(--ease);
+}
+.property-photo-nav svg{ width:1.15rem; height:1.15rem; }
+.property-photo-nav:hover{ background:#FFF; transform:scale(1.06); }
+.property-photo-nav.is-prev{ left:.7rem; }
+.property-photo-nav.is-next{ right:.7rem; }
+
+.property-photo-count{
+  position:absolute;
+  right:.7rem;
+  bottom:.7rem;
+  z-index:1;
+  padding:.22rem .6rem;
+  border-radius:999px;
+  background:rgba(11,33,57,.75);
+  color:#FFF;
+  font-size:.8rem;
+  font-weight:600;
+  font-variant-numeric:tabular-nums;
+}
+
+.property-thumbs{
+  position:relative;
+  display:flex;
+  gap:.5rem;
+  overflow-x:auto;
+  margin-inline:-.3rem;
+  padding:.3rem .3rem .5rem;
+  scrollbar-width:thin;
+}
+.property-thumbs li{ flex:none; }
+.property-thumb{
+  display:block;
+  width:88px;
+  aspect-ratio:4/3;
+  padding:0;
+  border:0;
+  border-radius:var(--radius-xs);
+  overflow:hidden;
+  background:var(--surface-3);
+  cursor:pointer;
+  opacity:.6;
+  outline:2px solid transparent;
+  outline-offset:2px;
+  transition:opacity .18s var(--ease), outline-color .18s var(--ease);
+}
+.property-thumb img{ width:100%; height:100%; object-fit:cover; }
+.property-thumb:hover{ opacity:1; }
+.property-thumb[aria-current="true"]{ opacity:1; outline-color:var(--accent); }
 .property-detail-info{ display:flex; flex-direction:column; gap:.9rem; }
 .property-detail-comuna{ font-size:.88rem; color:var(--accent-text); }
 .property-detail-info h1{
@@ -1450,7 +1521,9 @@ body.nav-open{ overflow:hidden; }
   .mobile-cta,
   .skip-link,
   .back-link,
-  .cta-final-rule{ display:none !important; }
+  .cta-final-rule,
+  .property-photo-nav,
+  .property-thumbs{ display:none !important; }
 
   html,body{ background:#FFF; color:#000; }
 
